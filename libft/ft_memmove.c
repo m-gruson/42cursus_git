@@ -21,6 +21,7 @@ void *ft_memmove(void *dest, const void *src, size_t n);
 int main () 
 {
 	merci bb
+		top
     char    *ma;
     char    *tab1[10] = "abcdefghyg";
 
