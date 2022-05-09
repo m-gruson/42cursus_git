@@ -1,59 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 12:46:39 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 22:24:44 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/09 19:30:22 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/09 19:40:44 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<string.h>
+#include<stdio.h>
 
-
-void *ft_memset(void *s, int c, size_t n)
-{
-   int  i;
-
-   i = 0;
-   
-   while(i != n)
-   {
-       *(char*)s++ = c;
-       i++;
-   }
-    return ((char*)s); 
-}
-
-int main()
-{
-    char tab[10] = "mathieu";
-    char tab1[10] = "oscar";
-
-    memset(tab, 3, 4);
-    ft_memset(tab1, 3, 4);
-    return (0);
-}
-
-int maim(void)
+int ft_strlen(char *str)
 {
     int i;
+
     i = 0;
-    while (str[i])
+    while(str[i] != '\0')
     {
-        str[i] = 'd';
         i++;
     }
+    return (i);
 }
 
-int main(void)
+
+char *ft_strchr(const char *s, int c)
+{
+    int i;
+    int l;
+    
+    i = 0;
+    l = ft_strlen((char *)s);
+    while (l != 0)
+    {
+        if (s[l] == c)
+            return ((char *)s+l);
+        l--;
+    }
+    return (NULL);
+}
+
+int main ()
 {
     char *str;
-    while (*str)
-    {
-        *str = 'd';
-        str++;
-    }
+
+    str = "helleo";
+    printf("%s\n", ft_strchr(str, 'l'));
+    printf("%s\n", strrchr(str, 'l'));
 }

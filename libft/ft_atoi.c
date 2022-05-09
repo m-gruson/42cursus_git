@@ -6,14 +6,13 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 10:59:52 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 11:37:19 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/09 21:48:17 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
 
-int ft_atoi(char *str)
+int ft_atoi(const char *str)
 {
     int i;
     int isign;
@@ -45,9 +44,10 @@ int ft_atoi(char *str)
     return (sign * nb);
 }
 
-int main(int argc, char **argv)
-{
-    printf("%d\n", ft_atoi(argv[1]));
-    printf("%d\n", atoi(argv[1]));
-    return (0);
-}
+
+// int main(int argc, char **argv)
+// {
+//     printf("%d\n", ft_atoi(argv[1]));
+//     printf("%d\n", atoi(argv[1]));
+//     return (0);
+// }

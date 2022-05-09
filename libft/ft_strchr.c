@@ -1,59 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 12:46:39 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 22:24:44 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/09 19:01:31 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/09 19:29:27 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<string.h>
+#include<stdio.h>
 
-
-void *ft_memset(void *s, int c, size_t n)
-{
-   int  i;
-
-   i = 0;
-   
-   while(i != n)
-   {
-       *(char*)s++ = c;
-       i++;
-   }
-    return ((char*)s); 
-}
-
-int main()
-{
-    char tab[10] = "mathieu";
-    char tab1[10] = "oscar";
-
-    memset(tab, 3, 4);
-    ft_memset(tab1, 3, 4);
-    return (0);
-}
-
-int maim(void)
+char *ft_strchr(const char *s, int c)
 {
     int i;
+    
     i = 0;
-    while (str[i])
+    while (s[i] != '\0')
     {
-        str[i] = 'd';
+        if (s[i] == c)
+            return ((char *)s+i);
         i++;
     }
+    return (NULL);
 }
 
-int main(void)
+int main ()
 {
     char *str;
-    while (*str)
-    {
-        *str = 'd';
-        str++;
-    }
+
+    str = "helleo";
+    printf("%s\n", ft_strchr(str, 'e'));
+    printf("%s\n", strchr(str, 'e'));
 }
