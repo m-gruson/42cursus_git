@@ -10,37 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libbsd.h>
 #include <stdio.h>
 
 char    *ft_strnstr(const char *big, const char *little, size_t len)
-[
+{
     int i;
+    int l;
     
     i = 0;
-    if (little(i) == '\0')
-        return (big)
-    while(big[i] != '\0')
+    l= 0;
+    if (little[i] == '\0')
+        return ((char*)big);
+    while(big[i] != '\0' && i < len)
     {
-        while(little(l) != '\0' && big(i) == little(l))
+        while(little[l] != '\0' && big[i] == little[l] && i < len)
         {
             
-            i++
-            l++
+            i++;
+            l++;
+            if (little[l] == '\0')
+                return ((char*)little);
         }
-        if (little(l) == '\0')
-            return (big)
         l = 0;
-        i++
+        i++;
     }
-    return (NULL)
-]
+    return ("NULL");
+}
 
 int main()
 {
     const char *largestring = "Foo Bar Baz";
-    const char *smallstring = "Bar";
+    const char *smallstring = "Foo";
     
-    printf("%d\n", strnstr(largestring, smallstring, 4));
+    printf("%s\n", ft_strnstr(largestring, smallstring, 3));
     return 0;
 }
