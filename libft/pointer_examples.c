@@ -23,7 +23,9 @@ int main()
     char    *p; // mais pas ici
     p = "mathieu"; 
 
-    printf("adresse de p :" "%p\n", &p); // p est un pointeur qui pointe vers l'adresse de l
+    printf("adresse de p :" "%p\n", &p); // p est un pointeur qui pointe vers p. & est son adresse propre
+    // printf("adresse de p :" "%p\n", &(*p+1)); => p pointe vers le premier élément du tableau mais pas d'élement qui a une adresse propore qui pointe vers le second élément
+
     printf("adresse vers laquelle p pointe :" "%p\n", p); // si pas de tableau, pas d'adresse
     printf("idem :" "%p\n", &*p);
     printf("idem" "%p\n", &p[0]);
@@ -35,6 +37,7 @@ int main()
     //printf("%s\n", p[1]); // ne marcherait pas car on désigner un point précis
     printf("%s\n", p+1); // va faire afficher tout le reste puisque on part de la mémoire 
     // p+1 = "b"; ne peut pas marcher car p+1 est une adresse mémoire
+    *(p+1) = 'b'; // cela revient au même que ce qu'il y a en dessous
     p[1] = 'b';
     printf("%s\n", p);
 
