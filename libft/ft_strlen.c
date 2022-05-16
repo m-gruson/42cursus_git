@@ -6,13 +6,15 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:12:52 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/06 15:17:01 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/16 18:44:59 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int    ft_strlen(const char *str)
+#include <stddef.h>
+
+size_t  ft_strlen(const char *str)
 {
-    unsigned int i;
+    size_t  i;
 
     i = 0;
     while (str[i] != '\0')

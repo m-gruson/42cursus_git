@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:01:31 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/16 19:18:05 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/16 18:37:42 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/16 19:15:26 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<stdio.h>
-
-char *ft_strchr(const char *s, int c)
+char **ft_split(char const *s, char c)
 {
     int i;
-    
-    i = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == c)
-            return ((char *)s+i);
-        i++;
-    }
-    return (NULL);
-}
-/*
-int main ()
-{
-    char *str;
+    int count_s;
+    char **s1;
 
-    str = "helleo";
-    printf("%s\n", ft_strchr(str, 'e'));
-    printf("%s\n", strchr(str, 'e'));
+    i = 0;
+    count_s = 0;
+    while(s[i]
+        ft_strchr
+    )
+    {
+        if (s[i] != c)
+               s = (char **)malloc()
+    }
 }
-*/
+
+int main()
+{
+    char const *s;
+    char    c;
+
+    s = "qamwameamramtamya";
+    c = "m";
+    ft_split(s, c);
+}
