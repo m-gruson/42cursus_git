@@ -6,51 +6,94 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:50:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/17 13:28:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/17 16:58:38 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <limits.h>
+
+static int    num_len(int nbr)
+{
+    int    len;
+
+    len = 1;
+    if (nbr < 0)
+    {
+        nbr *= -1;
+        len++;
+    }
+    while (nbr > 9)
+    {
+        nbr = nbr / 10;
+        len++;
+    }
+    return (len);
+}
+
+static char    *wrte_neg(char *str, int n, int len)
+{
+    while (len > 0)
+    {
+        str[len] = n % 10 + '0';
+        n = n / 10;
+        len--;
+    }
+    return (str);
+}
+
+static char    *wrte_pos(char *str, int n, int len)
+{
+    while (len >= 0)
+    {
+        str[len] = n % 10 + '0';
+        n = n / 10;
+        len--;
+    }
+    return (str);
+}
 
 char *ft_itoa(int n)
 {
-    unsigned int c;
-    int i;
-    char *s;
-    
-    i = 0;
-    c = n;
-    
-    while (c > 9 || c < -9)
+    char *str;
+    long int    len;
+
+    if (n == -2147483648)
     {
-        c = c / 10;
-        i++;
+        return ("-2147483648");
     }
+    len = num_len(n);
+    str = (char *)malloc(len * sizeof(char) + 1);
+    str[len] = '\0';
     if (n < 0)
     {
-       c = n * -1;
-       s = (char *)malloc((i + 2)*sizeof(char)); 
-       s[i++] = '-';
+        n *= -1;
+        str[0] = '-';
     }
-    if (n > 0)
+    len--;
+    if (str[0] == '-')
     {
-        s = (char *)malloc((i + 1)*sizeof(char));
-        c = n;
-    
-    if (c > 9)
-        ft_itoa(c / 10);
-    
-    s[i++] = c;
-    
-        
-    return (s);
+        return (wrte_neg(str, n, len));
+    }
+    else 
+    {
+        return (wrte_pos(str, n, len));
+    }
 }
 
-int main()
+int    main(void)
 {
-    int a;
-    
-    a = 5648724;
-    ft_itoa(a);
-    return 0;
+    printf("%s \n", ft_itoa(12597));
+    printf("%s \n", ft_itoa(-12597));
+    printf("%s \n", ft_itoa(1));
+    printf("%s \n", ft_itoa(-1));
+    printf("%s \n", ft_itoa(INT_MIN));
+    printf("%s \n", ft_itoa(INT_MAX));
+    printf("%s \n", ft_itoa(12597));
+
+    return (0);
 }
