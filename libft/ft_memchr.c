@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:24:48 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:31:25 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:37:19 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
     }
     return ("NULL");
 }
-
+/*
 int main()
 {
     char *tab;
@@ -39,4 +39,4 @@ int main()
     tab = "hella";
     ft_memchr(tab, 'e', 6);
     return (0);
-}
+}*/

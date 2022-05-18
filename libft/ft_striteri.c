@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 10:25:56 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:31 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:25 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
     }
     printf("%s\n", s);
 }
-
+/*
 int main()
 {
     char str[] = "mathieu";
 
     ft_striteri(str, f_test);
     return (0);
-}
+}*/

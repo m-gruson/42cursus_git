@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 16:58:41 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 11:57:44 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:43 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char)) // autre syntaxe 
     n[i] = '\0';
     return (n);
 }
-
+/*
 int main()
 {
     char *s;
@@ -46,4 +46,4 @@ int main()
 
     printf("%s\n", ft_strmapi(s, f_test));
     return (0);
-}
+}*/

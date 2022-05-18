@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:48:01 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:27 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:29 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char *ft_strjoin(char const *s1, char const *s2)
     s3[l] = '\0';
     return (s3);
 }
-
+/*
 int main()
 {
     char *s1;
@@ -59,4 +59,4 @@ int main()
     s1 = "mathieu";
     s2 = "gruson";
     printf("%s\n", ft_strjoin(s1, s2));
-}
+}*/

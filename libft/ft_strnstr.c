@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:41:54 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:21:12 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:51 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     }
     return ("NULL");
 }
-
+/*
 int main()
 {
     const char *largestring = "Foo Bar Baz";
@@ -44,4 +44,4 @@ int main()
     
     printf("%s\n", ft_strnstr(largestring, smallstring, 3));
     return 0;
-}
+}*/

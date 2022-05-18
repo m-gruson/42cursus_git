@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:50:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:31:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:37:15 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char *ft_itoa(int n)
         return (wrte_pos(str, n, len));
     }
 }
-
+/*
 int    main(void)
 {
     printf("%s \n", ft_itoa(12597));
@@ -91,4 +91,4 @@ int    main(void)
     printf("%s \n", ft_itoa(12597));
 
     return (0);
-}
+}*/

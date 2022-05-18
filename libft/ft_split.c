@@ -104,6 +104,7 @@ char **ft_split(char const *s, char c)
     return (s1);
 }
 
+/*
 int main() {
     char const *s;
     char    c;
@@ -113,4 +114,4 @@ int main() {
     ft_split(s, c);
 
     return 0;
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:17:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:32:39 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:36:23 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char    *ft_bzero(void *s, size_t n)
    }
     return ((char*)s); 
 }
-
+/*
 int main()
 {
     char tab[10] =  "mathieu";
@@ -38,4 +38,4 @@ int main()
     printf("%s\n", tab1);
 
     return (0);
-}
+}*/

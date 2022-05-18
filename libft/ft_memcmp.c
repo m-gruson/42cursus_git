@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:24:53 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:31:22 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:37:27 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
     return (0);
 }
 
+/*
 int main()
 {
     char *tab;
@@ -40,4 +41,4 @@ int main()
 
     printf("%d\n", ft_memcmp(tab, tab1, 0));
     return (0);
-}
+}*/

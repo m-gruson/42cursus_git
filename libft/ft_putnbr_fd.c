@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:20:09 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 11:27:14 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:37:56 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n + '0', fd);
 }
 
-
+/*
 int main()
 {
     int nmb = 432;
     ft_putnbr_fd(nmb, 1);
     return (0);
-}
+}*/

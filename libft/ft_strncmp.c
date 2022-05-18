@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 10:35:38 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:19:23 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:46 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
     }
     return (s1[i] - s2[i]);
 }
-
+/*
 int main()
 {
     const char tab[10] = "a";
@@ -34,4 +34,4 @@ int main()
     nb = 10;
     printf("%d\n", ft_strncmp(tab, tab1, nb));
     printf("%d\n", strncmp(tab, tab1, nb));
-}
+}*/

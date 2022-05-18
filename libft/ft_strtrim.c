@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 11:18:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:28:23 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:59 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char *ft_strtrim(char const *s1, char const *set)
     s2[n] = '\0';
     return (s2);
 }
-
+/*
 int main()
 {
     char    *s1;
@@ -49,4 +49,4 @@ int main()
 
     ft_strtrim(s1, set);
     return (0);
-}
+}*/

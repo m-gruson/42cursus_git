@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:16:26 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:49 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:37:52 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void ft_putstr_fd(char *s, int fd)
     ft_putchar('\n');
 }
 
+/*
 int main()
 {
     char *s;
@@ -37,4 +38,4 @@ int main()
     s = "mathieu";
     ft_putstr_fd(s, 1);
     return (0);
-}
+}*/

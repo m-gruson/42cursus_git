@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:37:45 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:24 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:32 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
     printf("%s\n", dest);
 	return (dest_len + src_len);
 }
-
+/*
 int main()
 {
 	char tab[50] = "hellop";
@@ -44,5 +44,5 @@ int main()
 	printf("%d\n", ft_strlcat(tab, tab1, nb));
 
 	return 0;
-}
+}*/
 

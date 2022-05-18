@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 18:16:16 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:26:24 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:39:11 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int   ft_toupper(int c)
         return (c);
 }
 
-
+/*
 int main()
 {
     printf("%d\n",ft_toupper(' '));
     printf("%d\n",toupper(' '));
-}
+}*/

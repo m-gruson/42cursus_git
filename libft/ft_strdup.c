@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:30:35 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:34 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:38:22 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char *ft_strdup(const char *s)
     printf("%s\n", new_string);
     return (new_string);
 }
-
+/*
 int main()
 {
     char *p;
@@ -44,4 +44,4 @@ int main()
     return 0;
 
 
-}
+}*/
