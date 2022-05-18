@@ -16,11 +16,9 @@
 int ft_tab(char const *s, char c)
 {
      int    l;
-     int    i;
      int separator;
 
      l = 0;
-     i = 0;
      separator = 0;
      while (s[l])
     {
@@ -89,14 +87,7 @@ char **ft_fill(char const *s, char c, char **s1)
 
 char **ft_split(char const *s, char c)
 {
-    int i;
-    int l;
-    int count_c;
     char **s1;
-
-    i = 0;
-    l = 0;
-    count_c = 0;
 
     s1 = (char **)malloc((ft_tab(s, c) + 2) * sizeof(char *)); // sans l'etoile dans le second char ca marchait pas
     ft_taboftab(s, c, s1);

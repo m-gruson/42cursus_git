@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 12:46:39 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:37:43 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:41:59 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void *ft_memset(void *s, int c, size_t n)
 {
-   int  i;
+   size_t  i;
 
    i = 0;
    

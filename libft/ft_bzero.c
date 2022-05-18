@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:17:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:36:23 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:22:33 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char    *ft_bzero(void *s, size_t n)
 {
-   int  i;
+   size_t  i;
 
    i = 0;
-   while(i != n)
+   while (i != n)
    {
        *(char*)s++ = '\0';
        i++;

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 10:25:56 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:38:25 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 16:14:16 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
     i = 0;
     while(s[i])
     {
-        f(i, s); // au debut javais ecris : s[i] = f(i, s) mais c est pas possible car la fonction f ne renvoie rien
+        (*f)(i, s); 
         i++;
     }
     printf("%s\n", s);
 }
-/*
+
 int main()
 {
-    char str[] = "mathieu";
+    char str[] = "mmmmmmmmmmmmm";
 
     ft_striteri(str, f_test);
     return (0);
-}*/
+}

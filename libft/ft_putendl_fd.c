@@ -6,16 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:16:26 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:37:52 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:44:08 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void ft_putchar(char c)
-{
-        write(1, &c, 1);
-}
 
 void ft_putstr_fd(char *s, int fd)
 {
@@ -24,10 +19,10 @@ void ft_putstr_fd(char *s, int fd)
     i = 0;
     while(s[i])
     {
-        ft_putchar(s[i]);
+        ft_putchar_fd(s[i], fd);
         i++;
     }
-    ft_putchar('\n');
+    ft_putchar_fd('\n', fd);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:32:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:38:35 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 16:22:26 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 			i++;
 		}
 		dest[i] = '\0';
-        printf("%s\n", dest);
 	}
 	return (l);
 }

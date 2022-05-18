@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:30:22 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:38:54 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:49:03 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 char *ft_strrchr(const char *s, int c)
 {
-    int i;
     int l;
     
-    i = 0;
     l = ft_strlen((char *)s);
     while (l != 0)
     {

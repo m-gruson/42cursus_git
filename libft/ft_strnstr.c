@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:41:54 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:38:51 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:48:45 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char    *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    int i;
-    int l;
+    size_t i;
+    size_t l;
     
     i = 0;
     l= 0;

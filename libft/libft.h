@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:43:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:32:26 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:53:37 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char    *ft_strnstr(const char *big, const char *little, size_t len);
 
 
 void    *ft_calloc(size_t nmeb, size_t size);
-char    *ft_strdup(const char *s)
+char    *ft_strdup(const char *s);
 
 
 
