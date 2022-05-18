@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:01:31 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:36 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/18 10:40:38 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/18 13:30:51 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-char *ft_strchr(const char *s, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-    int i;
-    
-    i = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == c)
-            return ((char *)s+i);
-        i++;
-    }
-    return (NULL);
+	write(fd, &c, 1);
 }
-/*
+
+
 int main ()
 {
-    char *str;
-
-    str = "helleo";
-    printf("%s\n", ft_strchr(str, 'e'));
-    printf("%s\n", strchr(str, 'e'));
+    char let;
+    char *letter ;
+    
+    letter = &let;
+    let = 'M'; 
+    ft_putchar_fd(let, 1); // marche aussi avec pointeur *letter; // le chiffre a droite c'est le meme concept que ds putstr
+    return(0);
 }
-*/

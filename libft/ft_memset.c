@@ -6,12 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 12:46:39 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 22:24:44 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:31:01 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-
+#include "libft.h"
 
 void *ft_memset(void *s, int c, size_t n)
 {
@@ -37,7 +36,7 @@ int main()
     return (0);
 }
 
-int maim(void)
+int main(void)
 {
     int i;
     i = 0;

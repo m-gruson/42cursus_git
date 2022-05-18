@@ -6,11 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:01:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/06 15:03:49 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:05:41 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(unsigned char c)
+int ft_isdigit(int c)
 {
     if (c >= '0' && c <= '9')
         return (1);

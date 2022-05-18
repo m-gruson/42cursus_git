@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:01:31 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:36 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/18 11:20:09 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/18 11:27:14 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-char *ft_strchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-    int i;
-    
-    i = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == c)
-            return ((char *)s+i);
-        i++;
-    }
-    return (NULL);
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
-/*
-int main ()
-{
-    char *str;
 
-    str = "helleo";
-    printf("%s\n", ft_strchr(str, 'e'));
-    printf("%s\n", strchr(str, 'e'));
+
+int main()
+{
+    int nmb = 432;
+    ft_putnbr_fd(nmb, 1);
+    return (0);
 }
-*/

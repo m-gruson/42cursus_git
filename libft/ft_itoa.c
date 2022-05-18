@@ -6,16 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:50:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/17 16:58:38 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:31:48 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <limits.h>
 
 static int    num_len(int nbr)
 {

@@ -6,12 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 13:06:30 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 15:49:41 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:31:18 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<stdio.h>
+#include "libft.h"
 
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {

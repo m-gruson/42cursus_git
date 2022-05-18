@@ -6,27 +6,14 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:30:22 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 19:40:44 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:25:40 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<stdio.h>
-
-int ft_strlen(char *str)
-{
-    int i;
-
-    i = 0;
-    while(str[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
-}
+#include"libft.h"
 
 
-char *ft_strchr(const char *s, int c)
+char *ft_strrchr(const char *s, int c)
 {
     int i;
     int l;

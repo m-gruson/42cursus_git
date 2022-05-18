@@ -6,12 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:17:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 12:49:23 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:32:39 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<strings.h>
-#include<stdio.h>
+#include "libft.h"
 
 char    *ft_bzero(void *s, size_t n)
 {

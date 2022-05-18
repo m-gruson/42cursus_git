@@ -6,23 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:37:45 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/09 10:06:41 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:30:24 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
-int	ft_strlen(char *str)
-{
-	int	i;
-    i = 0;
-
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {

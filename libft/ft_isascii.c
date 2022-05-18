@@ -6,11 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:06:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/06 15:10:27 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:05:37 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(unsigned char c)
+int ft_isascii(int c)
 {
     if (c >= 0 && c <= 255)
         return (1);

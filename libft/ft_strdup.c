@@ -3,27 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathieug <mathieug@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:30:35 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/12 17:56:32 by mathieug         ###   ########.fr       */
+/*   Updated: 2022/05/18 13:30:34 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
 
-int ft_strlen(const char *s)
-{
-    int i;
-
-    i = 0;
-    while(s[i])
-    {
-        i++;
-    }
-    return (i);
-}
 
 char *ft_strdup(const char *s)
 {

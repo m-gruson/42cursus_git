@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:01:31 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:30:36 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/18 10:25:56 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/18 13:30:31 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 
-char *ft_strchr(const char *s, int c)
+void    f_test(unsigned int i, char *str)
 {
-    int i;
+    if (str[i] == 'm')
+        str[i] = 'l';
+}
+
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+    unsigned int i;
     
     i = 0;
-    while (s[i] != '\0')
+    while(s[i])
     {
-        if (s[i] == c)
-            return ((char *)s+i);
+        f(i, s); // au debut javais ecris : s[i] = f(i, s) mais c est pas possible car la fonction f ne renvoie rien
         i++;
     }
-    return (NULL);
+    printf("%s\n", s);
 }
-/*
-int main ()
-{
-    char *str;
 
-    str = "helleo";
-    printf("%s\n", ft_strchr(str, 'e'));
-    printf("%s\n", strchr(str, 'e'));
+int main()
+{
+    char str[] = "mathieu";
+
+    ft_striteri(str, f_test);
+    return (0);
 }
-*/

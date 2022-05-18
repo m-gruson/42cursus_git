@@ -6,12 +6,12 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:27:19 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/13 15:56:07 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:27:51 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
+
 
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
