@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:13:50 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/20 15:49:02 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/20 19:25:46 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new) // ** car seul un double pointeur peu recevoir l'adresse d'un pointeur cest logique
 {
-	(*new).next = *lst; // We add the adress of *lst to new next to linked the node
-	*lst = new; // We put the new content 
+    /* ici on ne cree pas le node on le relie seulement, le block a ete cree avant */
+    
+	(*new).next = *lst; // We add the adress of *lst to new next to linked the node. On met l adresse du dernier 
+	*lst = new; // We put the new content. On met l'adresse de new dans le content de lst. 
 }
 
-/*
+
 int    ft_lstsize(t_list *lst)
 {
     int i;
@@ -61,4 +63,4 @@ int main()
     printf("%d\n", ft_lstsize(lst));
 
     return (0);
-}*/
+}

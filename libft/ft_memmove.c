@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:50:53 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:31:14 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/20 18:41:34 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void    *ft_memmove(void *dst, const void *src, size_t n)
     size_t    i;
 
     i = 0;
+    printf("%p\n", src);
+    printf("%p\n", dst);
     if (src > dst)
     {
         while (i < n)
@@ -34,4 +36,32 @@ void    *ft_memmove(void *dst, const void *src, size_t n)
         }
     }
     return (dst);
+}
+
+int main()
+{
+    char    src[] = "mathieugruson";
+    char    *dest;
+
+    dest = &src[3];
+
+    char    src1[] = "mathieugruson";
+    char    *dest1;
+
+    dest1 = &src1[3];
+
+    char    src2[] = "mathieugruson";
+    char    *dest2;
+
+    dest2 = &src2[3];
+    
+    printf("Before dest = %s, src = %s\n", dest1, src1);
+    ft_memmove(dest1, src1, 6);
+    printf("After dest = %s, src = %s\n", dest1, src1);
+
+    printf("Before dest = %s, src = %s\n", dest2, src2);
+    memcpy(dest2, src2, 6);
+    printf("After dest = %s, src = %s\n", dest2, src2);
+
+    return (0);
 }

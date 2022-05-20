@@ -25,9 +25,9 @@ int main()
     printf("%p\n", &tab);
     printf("%p\n", tab);
     printf("%p\n", &tab[0][0]);
-    printf("%c\n", tab[0][9]);
+    printf(" !! %p\n", &tab[0][9]);
     printf("%s\n", tab[0]);
-    printf("%c\n", tab[1][0]);
+    printf(" !! %p\n", &tab[1][0]);
     printf("%p\n", &tab[1][1]);
 /*
 meme dans le cas ci dessous l'adresse de la variable tab n'a rien a voir avec l adresse vers laquelle elle pointe

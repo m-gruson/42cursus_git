@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 13:06:30 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 15:41:34 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/20 18:30:48 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,37 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
     return ((char*)dest);
 }
 
-/*
+
 int main()
 {
-    char    dest[] = "b";
-    char    src[10] =  "mathieu";
+    char    src[] = "mathieugruson";
+    char    *dest;
 
-    char    dest1[] = "b";
-    char    src1[10] =  "mathieu";
+    dest = &src[3];
+
+    char    src1[] = "mathieugruson";
+    char    *dest1;
+
+    dest1 = &src1[3];
+
+    char    src2[] = "mathieugruson";
+    char    *dest2;
+
+    dest2 = &src2[3];
+    
+
 
     printf("Before dest = %s, src = %s\n", dest, src);
-    memcpy(dest, src, 3);
+    ft_memcpy(dest, src, 6);
     printf("After dest = %s, src = %s\n", dest, src);
 
     printf("Before dest = %s, src = %s\n", dest1, src1);
-    memmove(dest1, src1, 3);
+    ft_memmove(dest1, src1, 6);
     printf("After dest = %s, src = %s\n", dest1, src1);
 
+    printf("Before dest = %s, src = %s\n", dest2, src2);
+    memcpy(dest2, src2, 6);
+    printf("After dest = %s, src = %s\n", dest2, src2);
+
     return (0);
-}*/
+}
