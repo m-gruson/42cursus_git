@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 18:13:50 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/20 15:49:02 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/20 15:11:56 by mgruson           #+#    #+#             */
+/*   Updated: 2022/05/20 15:45:05 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new) // ** car seul un double pointeur peu recevoir l'adresse d'un pointeur cest logique
+t_list  *ft_lstlast(t_list *lst)
 {
+    int i;
+
+    i = 0;
+    while((*lst).next)
+    {
+        lst = (*lst).next;
+    }
+   return (lst);
+}
+
+void	ft_lstadd_back(t_list **lst, t_list *new) // ** car seul un double pointeur peu recevoir l'adresse d'un pointeur cest logique
+{
+    *lst = ft_lstlast(*lst);
 	(*new).next = *lst; // We add the adress of *lst to new next to linked the node
 	*lst = new; // We put the new content 
 }
 
-/*
 int    ft_lstsize(t_list *lst)
 {
     int i;
@@ -26,8 +38,7 @@ int    ft_lstsize(t_list *lst)
     i = 0;
     while(lst)
     {
-        printf("%s\n", (char *)(*lst).content);
-		lst = (*lst).next;
+        lst = (*lst).next;
         i++;
     }
    return (i);
@@ -57,8 +68,8 @@ int main()
     lst = add_link(lst, "tot");
     new = add_link(new, "tat");
     lst = add_link(lst, "tut");
-	ft_lstadd_front(&lst, new);
+	ft_lstadd_back(&lst, new);
     printf("%d\n", ft_lstsize(lst));
 
     return (0);
-}*/
+}
