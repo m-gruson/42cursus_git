@@ -6,36 +6,38 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:41:54 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 15:48:45 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/23 23:41:21 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    size_t i;
-    size_t l;
-    
-    i = 0;
-    l= 0;
-    if (little[i] == '\0')
-        return ((char*)big);
-    while(big[i] != '\0' && i < len)
-    {
-        while(little[l] != '\0' && big[i] == little[l] && i < len)
-        {
-            
-            i++;
-            l++;
-            if (little[l] == '\0')
-                return ((char*)little);
-        }
-        l = 0;
-        i++;
-    }
-    return ("NULL");
+	size_t	i;
+	size_t	j;
+	size_t	save;
+
+	i = 0;
+	j = 0;
+	if (ft_strlen(little) == 0)
+		return ((char *)(big));
+	while (((big[i] != '\0') && (little[j] != '\0')) && (i < len))
+	{
+		save = i;
+		while (big[i] == little[j] && (i < len))
+		{
+			i++;
+			j++;
+			if (j == ft_strlen(little))
+				return ((char *)(&(big[i - j])));
+		}
+		j = 0;
+		i = save + 1;
+	}
+	return (NULL);
 }
+
 /*
 int main()
 {
