@@ -25,24 +25,33 @@ t_list *add_link(t_list *list, char *content)
         (*tmp).content = content; // attribute the content given in the function
         (*tmp).next = list; // attribute the adress containing the adress of the content, NULL at first, nor after.
         printf(" string : %s\n", (char *)(*tmp).content);
+        printf(" p2 : %p\n", &tmp);
+        printf(" p2 bis : %p\n", &list);
+
         printf(" same as A : %p\n", &(*tmp).content); // = A
+        printf(" same as B : %p\n", (char *)(*tmp).content);
+        printf(" B ?  : %p\n", content);
+
         printf(" same as D : %p\n", (*tmp).next); // = D
+        printf(" same as C : %p\n", &(*tmp).next);
     }
+    
     return (tmp);
 }
 
-void    print_list(t_list *list)
+void    print_list(t_list *lst)
 {
-    while(list)
+    while(lst)
     {
-        printf("%s\n", (char *)(*list).content);
-        printf(" A memory adress of the variable which contains the adress where are stocked the data : %p\n", &(*list).content);
-        printf(" A : %p\n", list); // adress of the pointor
-        printf(" B memory adress of the content : %p\n", (*list).content); // adress of the variable which is pointed
-        printf(" C memory adress of the variable which contains the adresse where is stocked the next node : %p\n", &(*list).next);
-        printf(" D memory adress of the next node, which is the same as A normally : %p\n", (*list).next);
+        printf("%s\n", (char *)(*lst).content);
+        printf(" p : %p\n", &lst);
+        printf(" A memory adress of the variable which contains the adress where are stocked the data : %p\n", &(*lst).content);
+        printf(" A : %p\n", lst); // adress of the pointor
+        printf(" B memory adress of the content : %p\n", (*lst).content); // adress of the variable which is pointed
+        printf(" C memory adress of the variable which contains the adresse where is stocked the next node : %p\n", &(*lst).next);
+        printf(" D memory adress of the next node, which is the same as A normally : %p\n", (*lst).next);
 
-        list = (*list).next;
+        lst = (*lst).next;
          /* If we execute the program, we can see that 'list' and '&(*list).content' have the same adress so that
         when we  put the '=', we tranfer the adress of the next node to the list variable, which contain */
     }
@@ -53,9 +62,17 @@ int main()
     t_list  *list; // we create a pointor on list on a structure s_list, renamed t_list thanks to typedef
 
     list = NULL;
+    printf(" p1 : %p\n", &list);
     list = add_link(list, "tot");
     list = add_link(list, "tat");
-    list = add_link(list, "tut");
+    list = add_link(list, "tut"); // ça sert à mettre à jour en fait
+    printf(" p3 : %p\n", &list);
+    printf(" p3 : %p\n", list);
+
+    printf(" p3 A : %p\n", &(*list).content);
+    printf(" p3 B : %p\n", (*list).content);
+
+
     print_list(list);
 
     return (0);
