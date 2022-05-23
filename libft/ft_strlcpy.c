@@ -6,13 +6,13 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:32:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 16:22:26 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/23 17:49:24 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	l;
@@ -30,6 +30,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	}
 	return (l);
 }
+
 /*
 int main()
 {
@@ -41,5 +42,4 @@ int main()
     printf("%d\n", ft_strlcpy(tab, tab1, nb));
 
     return 0;
-
 }*/

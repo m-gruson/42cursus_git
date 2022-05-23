@@ -6,24 +6,25 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:17:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 15:22:33 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/23 17:24:16 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_bzero(void *s, size_t n)
+char	*ft_bzero(void *s, size_t n)
 {
-   size_t  i;
+	size_t	i;
 
-   i = 0;
-   while (i != n)
-   {
-       *(char*)s++ = '\0';
-       i++;
-   }
-    return ((char*)s); 
+	i = 0;
+	while (i != n)
+	{
+		*(char *)s++ = '\0';
+		i++;
+	}
+	return ((char *)s);
 }
+
 /*
 int main()
 {

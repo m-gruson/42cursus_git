@@ -6,26 +6,26 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 13:06:30 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/20 18:30:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/23 17:45:26 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while (i != n)
-    {
-        *(char *)dest++ = *(char *)src++;
-        i++;
-    }
-    return ((char*)dest);
+	i = 0;
+	while (i != n)
+	{
+		*(char *)dest++ = *(char *)src++;
+		i++;
+	}
+	return ((char *)dest);
 }
 
-
+/*
 int main()
 {
     char    src[] = "mathieugruson";
@@ -58,4 +58,4 @@ int main()
     printf("After dest = %s, src = %s\n", dest2, src2);
 
     return (0);
-}
+}*/
