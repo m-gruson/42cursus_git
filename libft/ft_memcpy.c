@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 13:06:30 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/23 17:45:26 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/25 13:16:11 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	while (i != n)
 	{
-		*(char *)dest++ = *(char *)src++;
+		((char *)dest)[i] = ((char *)src)[i];
 		i++;
 	}
 	return ((char *)dest);
