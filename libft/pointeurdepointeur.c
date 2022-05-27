@@ -48,6 +48,4 @@ meme dans le cas ci dessous l'adresse de la variable tab n'a rien a voir avec l 
     printf("%c\n", m);
 
     return 0;
-
-
 }
