@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:50:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 16:15:20 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/30 22:18:30 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ char *ft_itoa(int n)
         return ("-2147483648");
     }
     len = num_len(n);
+	printf("len %ld\n", len);
     str = (char *)malloc(len * sizeof(char) + 1);
     str[len] = '\0';
     if (n < 0)
@@ -82,13 +83,13 @@ char *ft_itoa(int n)
 
 int    main(void)
 {
-    printf("%s \n", ft_itoa(12597));
-    printf("%s \n", ft_itoa(-12597));
-    printf("%s \n", ft_itoa(4));
+    // printf("%s \n", ft_itoa(0));
+    // printf("%s \n", ft_itoa(-12597));
+    // printf("%s \n", ft_itoa(4));
     printf("%s \n", ft_itoa(-1));
     printf("%s \n", ft_itoa(INT_MIN));
     printf("%s \n", ft_itoa(INT_MAX));
-    printf("%s \n", ft_itoa(12597));
+    // printf("%s \n", ft_itoa(12597));
 
     return (0);
 }
