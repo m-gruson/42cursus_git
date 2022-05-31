@@ -6,46 +6,19 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:03:36 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/20 15:11:09 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/31 14:42:46 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list  *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    int i;
-
-    i = 0;
-    while((*lst).next)
-    {
-        lst = (*lst).next;
-    }
-   return (lst);
+	if (!lst)
+		return (NULL);
+	while ((*lst).next)
+	{
+		lst = (*lst).next;
+	}
+	return (lst);
 }
-
-/*
-t_list *add_link(t_list *list, char *content)
-{
-    t_list  *tmp;
-
-    tmp = malloc(sizeof(t_list));
-    if (tmp)
-    {
-        (*tmp).content = content; 
-        (*tmp).next = list; 
-    }
-    return (tmp);
-
-int main()
-{
-    t_list  *list;
-
-    list = NULL;
-    list = add_link(list, "tot");
-    list = add_link(list, "tat");
-    list = add_link(list, "tut");
-    printf("%s\n", ft_lstlast(list));
-
-    return (0);
-}*/

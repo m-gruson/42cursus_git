@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 10:40:38 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/18 13:37:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/31 11:37:29 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int main ()
     
     letter = &let;
     let = 'M'; 
-    ft_putchar_fd(let, 1); // marche aussi avec pointeur *letter; // le chiffre a droite c'est le meme concept que ds putstr
+    ft_putchar_fd(let, 1); // marche aussi avec pointeur *letter;
     return(0);
 }*/

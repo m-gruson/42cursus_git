@@ -1,78 +1,88 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_tmp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 15:11:56 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/20 20:06:23 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/31 15:50:00 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list  *ft_lstlast(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    int i;
+	t_list	*tmp;
 
-    i = 0;
-    while((*lst).next)
-    {
-        lst = (*lst).next;
-    }
-   return (lst);
+	if (!lst || !new)
+		return ;
+	tmp = *lst;
+	if (!tmp)
+	{
+		*lst = new;
+		return ;
+	}
+	while ((*tmp).next)
+		tmp = (*tmp).next;
+	(*tmp).next = new;
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new) // ** car seul un double pointeur peu recevoir l'adresse d'un pointeur cest logique
-{
-    /* ici on ne cree pas le node on le relie seulement, le block a ete cree avant */
-    
-    t_list  *tmp;
-    tmp = ft_lstlast(*lst); // ici on met le dernier element dans tmp normal 
-    (*tmp).next = new; // pour pouvoir lui mettre l adresse du content new alors que l adresse etait nulle avant.
-}  
+// void	ft_print_result(t_list *elem)
+// {
+// 	int		len;
 
-int    ft_lstsize(t_list *lst)
-{
-    int i;
+// 	len = 0;
+// 	while (((char *)elem->content)[len])
+// 		len++;
+// 	write(1, elem->content, len);
+// 	write(1, "\n", 1);
+// }
 
-    i = 0;
-    while(lst)
-    {
-        printf("%s\n", (char *)(*lst).content);
-        lst = (*lst).next;
-        i++;
-    }
-   return (i);
-}
+// t_list	*ft_lstnewone(void *content)
+// {
+// 	t_list	*elem;
 
+// 	elem = (t_list *)malloc(sizeof(t_list));
+// 	if (!elem)
+// 		return (NULL);
+// 	if (!content)
+// 		elem->content = NULL;
+// 	else
+// 		elem->content = content;
+// 	elem->next = NULL;
+// 	return (elem);
+// }
 
-t_list *add_link(t_list *list, char *content)
-{
-    t_list  *tmp;
+// int main()
+// {
+// 	t_list		*begin;
+// 	t_list		*elem;
+// 	t_list		*elem2;
+// 	t_list		*elem3;
+// 	t_list		*elem4;
+// 	char		*str = strdup("lorem");
+// 	char		*str2 = strdup("ipsum");
+// 	char		*str3 = strdup("dolor");
+// 	char		*str4 = strdup("sit");
 
-    tmp = malloc(sizeof(t_list));
-    if (tmp)
-    {
-        (*tmp).content = content; 
-        (*tmp).next = list; 
-    }
-    return (tmp);
-}
-
-int main()
-{
-    t_list  *lst;
-	t_list	*new;
-
-    lst = NULL;
-	new = NULL;
-    lst = add_link(lst, "tot");
-    new = add_link(new, "tat");
-    lst = add_link(lst, "tut");
-	ft_lstadd_back(&lst, new);
-    printf("%d\n", ft_lstsize(lst));
-
-    return (0);
-}
+// 	elem = ft_lstnewone(str);
+// 	elem2 = ft_lstnewone(str2);
+// 	elem3 = ft_lstnewone(str3);
+// 	elem4 = ft_lstnewone(str4);
+// 	alarm(5);
+// 	if (!elem || !elem2 || !elem3 || !elem4)
+// 		return (0);
+// 	begin = NULL;
+// 	ft_lstadd_back(&begin, elem);
+// 	ft_lstadd_back(&begin, elem2);
+// 	ft_lstadd_back(&begin, elem3);
+// 	ft_lstadd_back(&begin, elem4);
+// 	while (begin)
+// 	{
+// 		ft_print_result(begin);
+// 		begin = begin->next;
+// 	}
+// 	return (0);
+// }

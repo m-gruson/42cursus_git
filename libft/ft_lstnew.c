@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:26:03 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/20 10:31:09 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/05/31 12:15:15 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ t_list	*ft_lstnew(void *content)
 }
 
 
-int main()
-{
-	t_list	*list; 
-	list = ft_lstnew("boss");
-	printf("%s\n", (char *)(*list).content);
-	return 0;
-}
+// int main()
+// {
+// 	t_list	*list; 
+// 	list = ft_lstnew("boss");
+// 	printf("%s\n", (char *)(*list).content);
+// 	return 0;
+// }
