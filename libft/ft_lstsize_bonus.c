@@ -6,23 +6,23 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 14:43:18 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/20 15:11:27 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 19:29:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int    ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(lst)
-    {
-        lst = (*lst).next;
-        i++;
-    }
-   return (i);
+	i = 0;
+	while (lst)
+	{
+		lst = (*lst).next;
+		i++;
+	}
+	return (i);
 }
 
 /*

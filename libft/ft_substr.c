@@ -6,13 +6,13 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:27:19 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/26 16:10:18 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 21:42:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_sublen(char const *s, unsigned int start, size_t len)
+static size_t	ft_sublen(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	j;

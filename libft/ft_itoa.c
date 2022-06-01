@@ -6,13 +6,13 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:50:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/31 11:32:47 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 21:21:36 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	num_len(long long nbr)
+static int	num_len(long long nbr)
 {
 	long long int	len;
 

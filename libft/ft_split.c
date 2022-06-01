@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_tab(char const *s, char c)
+static int	ft_tab(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -34,7 +34,7 @@ int	ft_tab(char const *s, char c)
 	return (count);
 }
 
-void	ft_taboftab(char const *s, char c, char **s1)
+static void	ft_taboftab(char const *s, char c, char **s1)
 {
 	int	i;
 	int	count;
@@ -59,7 +59,7 @@ void	ft_taboftab(char const *s, char c, char **s1)
 	}
 }
 
-char	**ft_fill(char const *s, char c, char **s1)
+static char	**ft_fill(char const *s, char c, char **s1)
 {
 	int	l;
 	int	i;

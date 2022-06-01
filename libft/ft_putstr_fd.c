@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 10:48:49 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/31 12:09:56 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 21:29:35 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (fd < 0 || fd > 1024)
+		return ;
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 11:18:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/27 17:58:22 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 21:41:19 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_set_check(char const *set, char c)
 	return (0);
 }
 
-int	ft_trimlen(char const *s1, char const *set)
+static int	ft_trimlen(char const *s1, char const *set)
 {
 	int	i;
 	int	l;

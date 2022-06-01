@@ -6,18 +6,18 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 16:58:41 by mgruson           #+#    #+#             */
-/*   Updated: 2022/05/25 17:00:53 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 21:38:38 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	f_test(char c)
-{
-	if (c == 'm')
-		c = 't';
-	return (c);
-}
+// char	f_test(char c)
+// {
+// 	if (c == 'm')
+// 		c = 't';
+// 	return (c);
+// }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
