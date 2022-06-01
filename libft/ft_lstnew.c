@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:26:03 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/31 12:15:15 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/01 15:25:52 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ t_list	*ft_lstnew(void *content)
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new)
 	{
-		(*new).content = (char *) content;
+		(*new).content = (char *)content;
 		(*new).next = NULL;
 	}
 	return (new);
 }
-
 
 // int main()
 // {

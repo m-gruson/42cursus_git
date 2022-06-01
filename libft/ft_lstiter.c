@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathieug <mathieug@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 11:08:29 by mathieug          #+#    #+#             */
-/*   Updated: 2022/05/23 11:38:45 by mathieug         ###   ########.fr       */
+/*   Updated: 2022/06/01 15:28:40 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
-{
-    while(lst)
-    {
-        f((*lst).content);
-        lst = (*lst).next;
-    }
+#include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{	
+	while (lst)
+	{
+		f((*lst).content);
+		lst = (*lst).next;
+	}
 }
