@@ -34,6 +34,17 @@ static int	ft_tab(char const *s, char c)
 	return (count);
 }
 
+static void	**ft_free(char **s, int i)
+{
+	while (i >= 0)
+	{
+		free(s[i]);
+		i--;
+	}
+	free(s);
+	return (NULL);
+}
+
 static void	ft_taboftab(char const *s, char c, char **s1)
 {
 	int	i;
@@ -53,7 +64,11 @@ static void	ft_taboftab(char const *s, char c, char **s1)
 			count++;
 		}
 		if (count != 0)
+		{
 			s1[t] = (char *)ft_calloc((count + 1), sizeof(char));
+			if (!s1[t])
+				ft_free(s1, t);
+		}
 		t++;
 		count = 0;
 	}

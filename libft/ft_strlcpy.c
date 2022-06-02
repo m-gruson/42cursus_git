@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:32:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/01 21:37:56 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/02 12:18:51 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 	unsigned int	i;
 	unsigned int	l;
 
-	if (!src)
-		return (0);
 	l = ft_strlen(src);
 	i = 0;
 	if (size != 0)
