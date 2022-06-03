@@ -34,18 +34,18 @@ static int	ft_tab(char const *s, char c)
 	return (count);
 }
 
-static void	**ft_free(char **s, int i)
+static char	**ft_free(char **s, int t)
 {
-	while (i >= 0)
+	while (t >= 0)
 	{
-		free(s[i]);
-		i--;
+		free(s[t]);
+		s[t] = NULL;
+		t--;
 	}
-	free(s);
-	return (NULL);
+	return (s);
 }
 
-static void	ft_taboftab(char const *s, char c, char **s1)
+static char	**ft_taboftab(char const *s, char c, char **s1)
 {
 	int	i;
 	int	count;
@@ -58,20 +58,20 @@ static void	ft_taboftab(char const *s, char c, char **s1)
 	{
 		while (s[i] && s[i] == c)
 			i++;
-		while (s[i] && s[i] != c)
-		{
-			i++;
+		while (s[i] && s[i++] != c)
 			count++;
-		}
 		if (count != 0)
 		{
-			s1[t] = (char *)ft_calloc((count + 1), sizeof(char));
-			if (!s1[t])
-				ft_free(s1, t);
+			s1[t++] = (char *)ft_calloc((count + 1), sizeof(char));
+			if (!*s1)
+			{
+				s1 = ft_free(s1, t);
+				return (s1);
+			}
 		}
-		t++;
 		count = 0;
 	}
+	return (s1);
 }
 
 static char	**ft_fill(char const *s, char c, char **s1)
@@ -106,8 +106,12 @@ char	**ft_split(char const *s, char c)
 	s1 = (char **)ft_calloc((ft_tab(s, c) + 1), sizeof(char *));
 	if (!s1)
 		return (NULL);
-	ft_taboftab(s, c, s1);
-	ft_fill(s, c, s1);
+	s1 = ft_taboftab(s, c, s1);
+	if (!*s1)
+	{
+		return (s1);
+	}
+	s1 = ft_fill(s, c, s1);
 	return (s1);
 }
 
@@ -118,14 +122,18 @@ char	**ft_split(char const *s, char c)
 
 // 	i = 0;
 // 	if (!(tabstr = ft_split("lorem ipsnon risus. Suspendisse", ' ')))
-// 		printf("NULL");
+// 		printf("NULL\n");
+// 	if (tabstr)
+// 		printf("NULLL");
 // 	else
 // 	{
 // 		while (tabstr[i])
 // 		{
 // 			printf("%s\n", tabstr[i]);
+// 			free(tabstr[i]);		
 // 			write(1, "\n", 1);
 // 			i++;
 // 		}
 // 	}
+// 	free (tabstr);
 // }

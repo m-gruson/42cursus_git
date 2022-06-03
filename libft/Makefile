@@ -70,7 +70,4 @@ fclean : clean
 
 re : fclean all
 
-norminette : 
-	norminette $(SRC) $(BONUS_SRC)
-
-.PHONY : all bonus clean fclean re norminette 
+.PHONY : all bonus clean fclean re

@@ -6,13 +6,13 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:32:17 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/02 12:18:51 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/02 15:51:27 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	l;
