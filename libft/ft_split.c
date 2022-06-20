@@ -123,8 +123,8 @@ char	**ft_split(char const *s, char c)
 // 	i = 0;
 // 	if (!(tabstr = ft_split("lorem ipsnon risus. Suspendisse", ' ')))
 // 		printf("NULL\n");
-// 	if (tabstr)
-// 		printf("NULLL");
+// 	// if (tabstr)
+// 	// 	printf("NULLL");
 // 	else
 // 	{
 // 		while (tabstr[i])
