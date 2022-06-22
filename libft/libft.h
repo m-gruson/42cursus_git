@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:43:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/02 15:52:13 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:28:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* extra functions */
 
+void	ft_putnbr(int nb);
 #endif 
