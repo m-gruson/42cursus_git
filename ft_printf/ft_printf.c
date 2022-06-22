@@ -5,39 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 14:44:23 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/22 15:49:48 by mgruson          ###   ########.fr       */
+/*   Created: 2022/06/22 17:27:04 by mgruson           #+#    #+#             */
+/*   Updated: 2022/06/22 17:28:10 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<stdarg.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdarg.h>
 
-int print_ints(int num, ...)
+void	ft_conversion_detector(va_list args, const char *arg_display, int i)
 {
-	va_list	args;
-	int i;
-	int value;
-	
-	i = 0;
-	value = 0;
-	va_start(args, num);
-	while(i < num)
+	if (arg_display[i] == '%')
 	{
-		value = va_arg(args, int);
-		printf("%d : %d\n", i, value);
-		i++;	
+		arg_display = va_arg(args, const char *);
+		i = 0;
 	}
-	va_end(args);
+	while(arg_display && arg_display[i])
+	{
+		write(1, &arg_display[i], 1);
+		i++;
+	}
 }
 
-int main()
+int	ft_printf(const char *first_arg, ...)
 {
-	int	a;
+	va_list	args;
+	int	i;
+	const char *arg_display;
 
-	a = 42;
-	print_ints(3, a, 26, 312);
-	print_ints(2, 256, 512);
-
+	va_start(args, first_arg);
+	i = 0;
+	arg_display = first_arg;
+	while(arg_display && arg_display[i])
+	{
+		if(arg_display[i] == '%')
+		{
+			ft_conversion_detector(args, arg_display, i);
+			i++;
+		}
+		write(1, &arg_display[i], 1);
+		i++;
+	}
+	va_end(args);
 	return 0;
+}
+
+int	main()
+{
+	char *str;
+	
+	str = "troie";
+	ft_printf("debut %s fin %s", str, str);
+	return 0;	
 }
