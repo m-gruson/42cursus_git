@@ -6,14 +6,18 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:33:52 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 20:40:18 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/23 23:45:12 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void ft_puthex_lowercase(long long int n)
+int ft_puthex_lowercase(long long int n)
 {
+	static int len;
+	
+	if (!len)
+		len = 0;
 	if (n >= 16)
 	{
 		ft_puthex_lowercase(n / 16);
@@ -23,8 +27,17 @@ void ft_puthex_lowercase(long long int n)
     {
         if (n <= 9)
             ft_putchar((n + '0'));
-        else
+		else
             ft_putchar((n - 10 + 'a'));
+		len++;
     }
-	
+	return(len);
 }
+
+// int main()
+// {
+// 	int n;
+	
+// 	n = -567524587;
+// 	printf("\nnb : %d", ft_puthex_lowercase(n));
+// }

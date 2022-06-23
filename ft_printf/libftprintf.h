@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:43:27 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 20:34:21 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/23 23:35:34 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,16 @@
 /* printf functions */
 
 int		ft_printf(const char *str, ...);
-void	ft_putnbr(int nb);
-void	ft_putchar(char c);
-void 	ft_putstr(char *str, int a);
+int		ft_putnbr(int nb);
+int		ft_putnbr_unsigned(unsigned int nb);
+int		ft_putchar(char c);
+void	ft_putstr(char *str, int a);
 int		ft_putptr(long long int n);
-void	ft_puthex_lowercase(long long int n);
-void	ft_puthex_uppercase(long long int n);
-int		num_len(long long n);
+int		ft_puthex_lowercase(long long int n);
+int		ft_puthex_uppercase(long long int n);
+int		ft_numlen(long long n);
+int		ft_strlen(char *str);
+
 
 // size_t	ft_type_parametre(va_list arg, const char format);
 // size_t	ft_putstr_pour_printf(char *str);

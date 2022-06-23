@@ -6,13 +6,17 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:18:08 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 19:53:24 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/23 23:24:14 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void ft_putchar(char c)
+int ft_putchar(char c)
 {
-	write(1, &c, 1);
+	int len;
+
+	len = 0;
+	len += write(1, &c, 1);
+	return (len);
 }

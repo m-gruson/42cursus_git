@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 19:18:47 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 22:36:43 by mgruson          ###   ########.fr       */
+/*   Created: 2022/06/23 21:58:41 by mgruson           #+#    #+#             */
+/*   Updated: 2022/06/23 22:11:52 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_numlen(long long n)
+void	ft_putnbr_unsigned(unsigned int nb)
 {
-	long long int	len;
-
-	len = 1;
-	if (n < 0)
+	if (nb > 9)
 	{
-		n *= -1;
-		len++;
+		ft_putnbr_unsigned(nb / 10);
 	}
-	while (n > 9)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
+	nb = nb % 10;
+	nb = nb + '0';
+	write(1, &nb, 1);
 }
