@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:08:07 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 22:46:18 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/23 23:50:53 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int        ft_putptr(long long int n)
 {
-    int	i;
+    static int	i;
 	int len;
 
 	i = 0;
-
     if (i == 0)
 	{
         write(1, "0x", 2);
