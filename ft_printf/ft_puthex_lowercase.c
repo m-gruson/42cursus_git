@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 18:28:29 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/22 18:29:08 by mgruson          ###   ########.fr       */
+/*   Created: 2022/06/23 20:33:52 by mgruson           #+#    #+#             */
+/*   Updated: 2022/06/23 20:40:18 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libftprintf.h"
 
-void	ft_putnbr(int nb)
+void ft_puthex_lowercase(long long int n)
 {
-	unsigned int	c;
-
-	c = nb;
-	if (nb < 0)
+	if (n >= 16)
 	{
-		write(1, "-", 1);
-		c = -nb;
+		ft_puthex_lowercase(n / 16);
+		ft_puthex_lowercase(n % 16);
 	}
-	if (c > 9)
-	{
-		ft_putnbr(c / 10);
-	}
-	c = c % 10;
-	c = c + '0';
-	write(1, &c, 1);
+    else
+    {
+        if (n <= 9)
+            ft_putchar((n + '0'));
+        else
+            ft_putchar((n - 10 + 'a'));
+    }
+	
 }

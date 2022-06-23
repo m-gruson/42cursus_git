@@ -6,14 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:27:04 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/22 18:58:52 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/23 20:49:52 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 void	ft_s_conversion(va_list args, const char *arg_display)
 {
@@ -34,13 +31,43 @@ void	ft_c_conversion(va_list args, const char *arg_display)
 	write(1, &arg_display, 1);
 }
 
-void	ft_d_conversion(va_list args, const char *arg_display)
+void	ft_d_conversion(va_list args)
 {
-	int	i;
+	int	d;
 
-	i = va_arg(args, int);
-	ft_putnbr(i);
+	d = va_arg(args, int);
+	ft_putnbr(d);
 }
+
+void	ft_p_conversion(va_list args)
+{
+	long long int	p;
+
+	p = va_arg(args, long long int);
+	ft_putptr(p);
+}
+
+void	ft_x_conversion(va_list args)
+{
+	long long int x;
+
+	x = va_arg(args, long long int);
+	ft_puthex_lowercase(x);
+}
+
+void	ft_X_conversion(va_list args)
+{
+	long long int x;
+
+	x = va_arg(args, long long int);
+	ft_puthex_uppercase(x);
+}
+
+// void	ft_percentage_conversion(args, int i)
+// {
+// 	write(1, &arg_display[i++], 1);
+// 	write(1, &arg_display[i], 1);
+// }
 
 void	ft_conversion_selector(va_list args, const char *arg_display, int i)
 {
@@ -49,15 +76,18 @@ void	ft_conversion_selector(va_list args, const char *arg_display, int i)
 		ft_s_conversion(args, arg_display);
 	if (arg_display[i] == 'c')
 		ft_c_conversion(args, arg_display);	
-	// if (arg_display[i] == 'p')
+	if (arg_display[i] == 'p')
+		ft_p_conversion(args);
 	if (arg_display[i] == 'd' || arg_display[i+1] == 'i')
-		ft_d_conversion(args, arg_display);
+		ft_d_conversion(args);
 	// if (arg_display[i] == 'u')
-	// if (arg_display[i] == 'x')
-	// if (arg_display[i] == 'X')
+	if (arg_display[i] == 'x')
+		ft_x_conversion(args);
+	if (arg_display[i] == 'X')
+		ft_X_conversion(args);
 	// if (arg_display[i] == '%')
-	// write(1, &arg_display[i++], 1);
-	// write(1, &arg_display[i], 1);
+	// 	ft_percentage_conversion(args, i);
+
 }
 
 int	ft_printf(const char *first_arg, ...)
@@ -86,26 +116,27 @@ int	ft_printf(const char *first_arg, ...)
 int	main()
 {
 	char c;
-	char *s;
+
 	int	d;
+	
+
+	c = 'm';
+	d = 1546846;
 	
 	printf("hello\n");
 	ft_printf("hello\n");
 	
-	s = "troie";
-	printf("debut %s fin %s \n", s, s);
-	ft_printf("debut %s fin %s \n", s, s);
+	printf("debut %c fin %p \n", c, "hello");
+	ft_printf("debut %c fin %p \n", c, "hello");
 
-	c = 'm';
 	printf("debut %c fin %c \n", c, c);
 	ft_printf("debut %c fin %c \n", c, c);
 
-	d = 10;
-	printf("debut %d fin %d \n", d, d);
-	ft_printf("debut %d fin %d \n", d, d);
+	printf("debut %X fin %x \n", d, d);
+	ft_printf("debut %X fin %x \n", d, d);
 
-	printf("debut %i fin %i \n", d, d);
-	ft_printf("debut %i fin %i \n", d, d);
+	// printf("debut %% fin %i \n", d);
+	// ft_printf("debut %% fin %i \n", d);
 
 	return 0;	
 }
