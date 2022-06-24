@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:33:52 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 23:48:13 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/24 16:23:23 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,4 @@ int ft_puthex_lowercase(long long int n)
 		len++;
     }
 	return(len);
-}
-
-int main()
-{
-	int n;
-	
-	n = -567524587;
-	printf("\nnb : %d", ft_puthex_lowercase(n));
 }

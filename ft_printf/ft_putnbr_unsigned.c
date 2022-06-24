@@ -6,19 +6,27 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 21:58:41 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 22:11:52 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/24 16:32:12 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr_unsigned(unsigned int nb)
+int	ft_putnbr_unsigned(unsigned int nb)
 {
+	static int	len;
+
+	if (!len)
+		len = 0;
 	if (nb > 9)
 	{
 		ft_putnbr_unsigned(nb / 10);
+		ft_putnbr_unsigned(nb % 10);
 	}
-	nb = nb % 10;
-	nb = nb + '0';
-	write(1, &nb, 1);
+	else
+	{
+		ft_putchar(nb + '0');
+		len++;
+	}
+	return (len);
 }

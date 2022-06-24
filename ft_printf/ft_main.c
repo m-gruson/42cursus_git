@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 20:08:07 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 16:43:04 by mgruson          ###   ########.fr       */
+/*   Created: 2022/06/24 14:19:01 by mgruson           #+#    #+#             */
+/*   Updated: 2022/06/24 16:41:42 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int        ft_putptr(long long int n)
+int main()
 {
-	static int len;
-
-	if (!len)
-	{
-        write(1, "0x", 2);
-		len = 2;
-	}
-    if (n >= 16)
-    {
-        ft_putptr(n / 16);
-        ft_putptr(n % 16);
-    }
-    else
-    {
-        if (n <= 9)
-            ft_putchar((n + '0'));
-        else
-            ft_putchar((n - 10 + 'a'));
-		len++;
-    }
-    return (len);
+	int a = 5454545;
+	
+	printf("\n%d\n", ft_putptr(a));
+	printf("\n%d\n", printf("%d", a));
 }

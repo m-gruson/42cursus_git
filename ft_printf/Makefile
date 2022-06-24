@@ -20,6 +20,7 @@ SRC = ft_printf.c \
 	ft_putptr.c \
 	ft_puthex_lowercase.c \
 	ft_puthex_uppercase.c \
+	ft_strlen.c \
 
 
 OBJ = $(SRC:.c=.o)
