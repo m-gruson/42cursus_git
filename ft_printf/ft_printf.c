@@ -6,22 +6,24 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:27:04 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 21:05:49 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/24 23:37:54 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_s_conversion(va_list args, const char *str_arg)
+int	ft_s_conversion(va_list args)
 {
 	int i;
 	char *str;
 
 	i = 0;
 	str = va_arg(args, char *);
-	while(str_arg && str_arg[i])
+	if (!str)
+		return (write(1, "(null)", 6));
+	while(str && str[i])
 	{
-		write(1, &str_arg[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 	return (ft_strlen(str)); // ok
@@ -44,10 +46,11 @@ int	ft_d_conversion(va_list args)
 
 int	ft_p_conversion(va_list args)
 {
-	long long int	p;
-
-	p = va_arg(args, long long int);
-	return(ft_putptr(p)); // ok
+	unsigned long long p;
+	
+	write(1, "0x", 2);
+	p = va_arg(args, unsigned long long);
+	return(ft_putptr(p) + 2 ); // ok
 }
 
 int	ft_x_conversion(va_list args)
@@ -81,7 +84,7 @@ int	ft_conversion_selector(va_list args, const char *str_arg, int i)
 	len = 0;
 	i++;
 	if (str_arg[i] == 's')
-		len = ft_s_conversion(args, str_arg);
+		len = ft_s_conversion(args);
 	if (str_arg[i] == 'c')
 		len = ft_c_conversion(args, str_arg);	
 	if (str_arg[i] == 'p')
@@ -134,8 +137,9 @@ int	ft_printf(const char *first_arg, ...)
 // int	main()
 // {
 
-// 	printf("%d\n", printf("%c", '0'));
-// 	ft_printf("%d\n", ft_printf("%c", '0'));
+// 	printf("%d\n", printf(" %u %u %u %u %u %u ", INT_MAX, INT_MIN, 0, -42));
+// 	printf("\n\n");
+// 	ft_printf("%d\n", ft_printf(" %u %u %u %u %u %u ", INT_MAX, INT_MIN, 0, -42));
 
 // 	return 0;	
-// }
+// 

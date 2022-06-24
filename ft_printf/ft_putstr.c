@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:09:32 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 18:40:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/24 21:51:31 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void ft_putstr(char *str, int a)
 {
 	int i;
 	i = 0;
-	
 	while(i <= a-1)
 	{
 		ft_putchar(str[i]);

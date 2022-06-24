@@ -88,21 +88,9 @@ int		ft_putnbr(int nb);
 int		ft_putnbr_unsigned(unsigned int nb);
 void	ft_putchar(char c);
 void	ft_putstr(char *str, int a);
-int		ft_putptr(long long int n);
+int		ft_putptr(unsigned long long n);
 int		ft_puthex_lowercase(long long int n);
 int		ft_puthex_uppercase(long long int n);
 int		ft_numlen(long long n);
 
-
-// size_t	ft_type_parametre(va_list arg, const char format);
-// size_t	ft_putstr_pour_printf(char *str);
-// size_t	ft_putnbr_pour_printf(int nbr);
-// size_t	ft_print_ptr(unsigned long long int nb);
-// void	ft_putnbr_unsigned_int(unsigned int nbr);
-// size_t	ft_putnbr_u(unsigned int nbr);
-// size_t	longueur_nbr(long nbr);
-// size_t	ft_print_x(unsigned int n, char c);
-// size_t	ft_hexa_len(unsigned long long int n);
-// void	hexa_pourlep(unsigned long long int n);
-// void	hexa_pourlexcapital(unsigned long long int n);
 #endif 
