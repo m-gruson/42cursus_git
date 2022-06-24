@@ -6,11 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 22:34:50 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/23 22:35:22 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/24 18:40:58 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int ft_strlen(char *str)
 {

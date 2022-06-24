@@ -3,15 +3,6 @@ NAME = libftprintf.a
 CC = gcc -Wall -Wextra -Werror
 
 SRC = ft_printf.c \
-	%%_conversion.c \
-   	%c_conversion.c \
-    %d_conversion.c \
-    %i_conversion.c \
-    %p_conversion.c \
-    %s_conversion.c \
-    %u_conversion.c \
-    %x_conversion.c \
-    %X_conversion.c \
     ft_numlen.c \
     ft_putchar.c \
     ft_putnbr.c \

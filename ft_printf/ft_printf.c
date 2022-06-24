@@ -6,11 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:27:04 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 16:52:54 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/24 21:05:49 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_s_conversion(va_list args, const char *str_arg)
 {
@@ -113,26 +113,29 @@ int	ft_printf(const char *first_arg, ...)
 	i = 0;
 	len = 0;
 	str_arg = first_arg;
-	while(str_arg && str_arg[i])
+	while(str_arg[i])
 	{
 		if(str_arg[i] == '%')
 		{
 			len = len + ft_conversion_selector(args, str_arg, i);
 			i = i + 2;
 		}
-		write(1, &str_arg[i], 1);
-		i++;
-		len++;
+		if(str_arg[i])
+		{
+			write(1, &str_arg[i], 1);
+			i++;
+			len++;
+		}
 	}
 	va_end(args);
 	return (len);
 }
 
-int	main()
-{
+// int	main()
+// {
 
-	printf("%d\n", printf("%u\n", 54648));
-	ft_printf("%d\n", ft_printf("%u\n", 54648));
+// 	printf("%d\n", printf("%c", '0'));
+// 	ft_printf("%d\n", ft_printf("%c", '0'));
 
-	return 0;	
-}
+// 	return 0;	
+// }
