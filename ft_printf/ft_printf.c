@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:27:04 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 23:37:54 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:13:36 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	ft_p_conversion(va_list args)
 	
 	write(1, "0x", 2);
 	p = va_arg(args, unsigned long long);
-	return(ft_putptr(p) + 2 ); // ok
+	ft_putptr(p);
+	return(ft_hexlen(p) + 2 ); // ok
 }
 
 int	ft_x_conversion(va_list args)
@@ -123,7 +124,7 @@ int	ft_printf(const char *first_arg, ...)
 			len = len + ft_conversion_selector(args, str_arg, i);
 			i = i + 2;
 		}
-		if(str_arg[i])
+		if(str_arg[i] && str_arg[i] != '%')
 		{
 			write(1, &str_arg[i], 1);
 			i++;
@@ -142,4 +143,3 @@ int	ft_printf(const char *first_arg, ...)
 // 	ft_printf("%d\n", ft_printf(" %u %u %u %u %u %u ", INT_MAX, INT_MIN, 0, -42));
 
 // 	return 0;	
-// 

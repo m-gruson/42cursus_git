@@ -84,6 +84,8 @@
 
 int		ft_printf(const char *str, ...);
 int		ft_strlen(char *str);
+int		ft_numlen(long long n);
+int		ft_hexlen(unsigned long long n);
 int		ft_putnbr(int nb);
 int		ft_putnbr_unsigned(unsigned int nb);
 void	ft_putchar(char c);
@@ -91,6 +93,6 @@ void	ft_putstr(char *str, int a);
 int		ft_putptr(unsigned long long n);
 int		ft_puthex_lowercase(long long int n);
 int		ft_puthex_uppercase(long long int n);
-int		ft_numlen(long long n);
+
 
 #endif 

@@ -4,6 +4,7 @@ CC = gcc -Wall -Wextra -Werror
 
 SRC = ft_printf.c \
     ft_numlen.c \
+	ft_hexlen.c \
     ft_putchar.c \
     ft_putnbr.c \
 	ft_putnbr_unsigned.c \
