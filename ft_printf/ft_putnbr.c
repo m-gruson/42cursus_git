@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 18:28:29 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 18:40:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/27 13:04:41 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putnbr(int nb)
 {
 	unsigned int	c;
-	static int	len;
+	static int		len;
 
 	if (!len)
 		len = 0;

@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_unslen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 14:19:01 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 18:40:58 by mgruson          ###   ########.fr       */
+/*   Created: 2022/06/27 11:58:35 by mgruson           #+#    #+#             */
+/*   Updated: 2022/06/27 13:04:41 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main()
+int	ft_unslen(unsigned int n)
 {
-	int a = 5454545;
-	
-	printf("\n%d\n", ft_putptr(a));
-	printf("\n%d\n", printf("%d", a));
+	int	len;
+
+	len = 1;
+	while (n > 9)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }

@@ -3,17 +3,19 @@ NAME = libftprintf.a
 CC = gcc -Wall -Wextra -Werror
 
 SRC = ft_printf.c \
-    ft_numlen.c \
+    ft_nbrlen.c \
 	ft_hexlen.c \
+	ft_unslen.c \
     ft_putchar.c \
     ft_putnbr.c \
-	ft_putnbr_unsigned.c \
+	ft_putuns.c \
 	ft_putstr.c \
 	ft_putptr.c \
 	ft_puthex_lowercase.c \
 	ft_puthex_uppercase.c \
 	ft_strlen.c \
-
+	ft_s_c_d_p_conversion.c \
+	ft_x_xupper_u_conversion.c \
 
 OBJ = $(SRC:.c=.o)
 

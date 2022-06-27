@@ -6,20 +6,20 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:09:32 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 21:51:31 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/27 13:04:41 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putstr(char *str, int a)
+void	ft_putstr(char *str, int a)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	while(i <= a-1)
+	while (i <= a - 1)
 	{
 		ft_putchar(str[i]);
 		i++;
 	}	
 }
-

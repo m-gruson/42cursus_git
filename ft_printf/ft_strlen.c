@@ -6,20 +6,20 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 22:34:50 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/24 18:40:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/06/27 13:04:41 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
-	i = 0;
 
-	while(str[i])
+	i = 0;
+	while (str[i])
 	{
-		i++;		
+		i++;
 	}
 	return (i);
 }
