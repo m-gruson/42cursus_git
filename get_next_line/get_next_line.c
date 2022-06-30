@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mathieug <mathieug@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 15:53:45 by mgruson           #+#    #+#             */
-/*   Updated: 2022/06/29 18:06:37 by mathieug         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
@@ -47,7 +35,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		((char *)p)[i] = '\0';
 		i++;
 	}
-	return (p);
+	return ((char *) p);
 }
 
 char	*clean_line(char *src)
@@ -57,56 +45,52 @@ char	*clean_line(char *src)
 	i = 0;
 	if (!src)
 		return (NULL);
-	while(src[i] != '\n')
+	while(src[i] != '\n' && src[i])
 	{
 		i++;
 	}
-	i++;
-	while(src[i])
-		src[i] = '\0';
 	return (src);
 }
 
-char	*rest_line(char *src)
+char	*end_line(char *src)
 {
 	size_t	i;
 	int		l;
 	char *dest;
+    size_t bob;
 
 	i = 0;
 	l = 0;
 	if(!src)
 		return (NULL);
-	dest = ft_calloc(sizeof(char), (ft_strlen(src) + 1));
-	while(src[i] != '\n')
+	dest = ft_calloc((ft_strlen(src) + 1), sizeof(char));
+	while(src[i] != '\n' && src[i])
 	{
 		i++;
 	}
 	i++;
-	while(src[i] != '\0')
+    bob = ft_strlen(src);
+    while(i < bob)
 	{
-		 dest[l] = src[i];
-		 i++;
-		 l++;
-	}
-	while(dest[l] != '\0')
-	{
-		dest[l] = '\0';
+		dest[l] = src[i];
+		i++;
 		l++;
 	}
 	return (dest);
 }
 
-
-
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2, int buflen)
 {
 	int		i;
 	int		l;
 	char	*s3;
+
 	i = 0;
 	l = 0;
-
+    if (buflen == 0)
+    {
+        return (s1);
+    }
 	s3 = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (!s3)
 		return (NULL);
@@ -117,65 +101,61 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		l++;
 	}
 	i = 0;
-	while (s2[i])
+	while (s2 && s2[i])
 		s3[l++] = s2[i++];
-	s3[l] = '\0';
 	return (s3);
 }
 
-void	*ft_memchr(char *s, int c, size_t n)
+int	ft_memchr(char *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (i < n)
+	while (i < n && s[i])
 	{
 		if (((char unsigned *)s)[i] == (unsigned char)c)
 		{
-			return ((char unsigned *)s + i);
+			return (1);
 		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 
 char *get_next_line(int fd)
 {
-
-	int buflen;
 	char *buf;
 	char *line;
 	static char *next_line;
+	int	buflen;
 	
+	buflen = 1;
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	if(!next_line)
 		next_line = NULL;
-	buflen = 0;
 	line = next_line;
-	buf = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	buf = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buf)
 		return (NULL);
-	if(!ft_memchr(next_line, '\n', (ft_strlen(next_line))))
+	if(!ft_memchr(next_line, '\n', (ft_strlen(next_line)))) // pour éviter de rentrer qd on a deja un saut à la ligne qd on rappel
 	{
-		while(!ft_memchr(buf, '\n', (BUFFER_SIZE + 1)))
+		while(!ft_memchr(buf, '\n', (BUFFER_SIZE)) && buflen != 0)
 		{
 				buflen = read(fd, buf, BUFFER_SIZE);
-				buf[buflen] = '\0';
-				line = ft_strjoin(line, buf);
+				buf[BUFFER_SIZE] = '\0';
+				line = ft_strjoin(line, buf, buflen);
 		}
 	}
-	next_line = rest_line(line);
+	next_line = end_line(line);
 	line = clean_line(line);
-	
 	free(buf);
 	return (line);
-}		
+}
 
-
-int main()
+int main(void)
 {
 	int		fd;
 	char	*line;
@@ -183,11 +163,11 @@ int main()
 	fd = 0;
 	fd = open("text.txt", O_RDONLY);
 	line = get_next_line(fd);
-	printf("1 : %s\n", line);
+	printf("1 : %s", line);
 	line = get_next_line(fd);
-	printf("1 : %s\n", line);
+	printf("1 : %s", line);
 	line = get_next_line(fd);
-	printf("1 : %s\n", line);		
+	printf("1 : %s", line);
 	close(fd);
 	return (0);
 } 

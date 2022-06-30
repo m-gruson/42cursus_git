@@ -6,7 +6,7 @@
 /*   By: mathieug <mathieug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:54:55 by mathieug          #+#    #+#             */
-/*   Updated: 2022/06/29 16:01:19 by mathieug         ###   ########.fr       */
+/*   Updated: 2022/06/30 21:15:56 by mathieug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+char *get_next_line(int fd);
+
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 100000
 #endif
-
-char *get_next_line(int fd);
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 
 #endif 
