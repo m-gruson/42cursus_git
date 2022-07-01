@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/01 17:37:35 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/01 18:09:47 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ char	*get_end_line(char *work_line)
 
 	i = 0;
 	j = 0;
+	if (!work_line)
+		return (NULL);
 	while (work_line[i] && work_line[i] != '\n')
 		i++;
 	i++;
 	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - i + 1));
 	if (!tmp)
-		return (0);
+		return (NULL);
 	while (work_line[i])
-		tmp[j++] = work_line[++i];
+		tmp[j++] = work_line[i++];
 	tmp[j] = '\0';
 	// free(work_line);
 	return (tmp);
@@ -36,8 +38,10 @@ char	*get_end_line(char *work_line)
 
 char	*get_clean_line(char *src)
 {
-	size_t	i;
-
+	int	i;
+	char	*tmp;
+	
+	//printf("src : %s\n", src);
 	i = 0;
 	if (!src)
 		return (NULL);
@@ -45,13 +49,14 @@ char	*get_clean_line(char *src)
 	{
 		i++;
 	}
-	i++;
-	while(i < ft_strlen(src))
+	tmp = malloc(sizeof(char) * (i + 1));
+	tmp[i+1] = '\0';
+	while(i >= 0)
 	{
-		src[i] = '\0';
-		i++;
+		tmp[i] = src[i];
+		i--;
 	}
-	return (src);
+	return (tmp);
 }
 
 char *get_work_line(int	fd, char *work_line)
@@ -60,8 +65,11 @@ char *get_work_line(int	fd, char *work_line)
 	char *tmp;
 	int	buflen;
 
-	buf = ft_calloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while(!ft_memchr(work_line, '\n', (ft_strlen(work_line) - 1)))
+	buflen = 1;
+	buf = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL);
+	while(!ft_memchr(work_line, '\n', (ft_strlen(work_line) - 1)) && buflen != 0)
 	{
 		buflen = read(fd, buf, (BUFFER_SIZE + 1));
 		if (buflen == 0)
@@ -69,7 +77,9 @@ char *get_work_line(int	fd, char *work_line)
 			free(buf);
 			buf = NULL;
 		}
+		//printf("wl : %s", work_line);
 		tmp = ft_strjoin(work_line, buf);
+		//printf("tmp : %s", tmp);
 		// free(work_line);
 		work_line = tmp;
 	}
@@ -86,10 +96,12 @@ char *get_next_line(int fd)
 		return (NULL);
 	if (!work_line)
 		work_line = NULL;
-		
 	work_line = get_work_line(fd, work_line);
+	//printf("\nworkline 1 %s ABAB---", work_line);
 	print_line = get_clean_line(work_line);
 	work_line = get_end_line(work_line);
+	//printf("\nworkline 2 %s ABAB---", work_line);
+	
 	return(print_line);
 }
 
