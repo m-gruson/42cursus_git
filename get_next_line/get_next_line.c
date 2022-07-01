@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/01 18:09:47 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/01 18:26:42 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char	*get_end_line(char *work_line)
 	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - i + 1));
 	if (!tmp)
 		return (NULL);
-	while (work_line[i])
+	tmp[ft_strlen(work_line) - i] = '\0';
+	while (work_line[i] || tmp[j])
 		tmp[j++] = work_line[i++];
-	tmp[j] = '\0';
 	// free(work_line);
 	return (tmp);
 }
@@ -43,18 +43,19 @@ char	*get_clean_line(char *src)
 	
 	//printf("src : %s\n", src);
 	i = 0;
-	if (!src)
+	if (!src || ft_strlen(src) == 0)
 		return (NULL);
 	while(src[i] != '\n' && i < ft_strlen(src))
 	{
 		i++;
 	}
+	i++;
 	tmp = malloc(sizeof(char) * (i + 1));
-	tmp[i+1] = '\0';
-	while(i >= 0)
+	tmp[i] = '\0';
+	while(i > 0)
 	{
-		tmp[i] = src[i];
 		i--;
+		tmp[i] = src[i];
 	}
 	return (tmp);
 }
@@ -100,7 +101,7 @@ char *get_next_line(int fd)
 	//printf("\nworkline 1 %s ABAB---", work_line);
 	print_line = get_clean_line(work_line);
 	work_line = get_end_line(work_line);
-	//printf("\nworkline 2 %s ABAB---", work_line);
+	// printf("\nworkline 2 %s ABAB---", work_line);
 	
 	return(print_line);
 }
