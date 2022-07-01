@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/01 18:26:42 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/01 18:29:58 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ char *get_work_line(int	fd, char *work_line)
 		tmp = ft_strjoin(work_line, buf);
 		//printf("tmp : %s", tmp);
 		// free(work_line);
+		free(buf);
 		work_line = tmp;
 	}
 	return(work_line);
