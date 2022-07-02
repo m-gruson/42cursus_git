@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 18:21:09 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 18:53:46 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char *get_work_line(int	fd, char *work_line)
 		buflen = read(fd, buf, (BUFFER_SIZE));
 		printf("buf : %s\n", buf);
 		if (buflen < ft_strlen(buf))
-			ft_bzero()
+			ft_bzero(buf, buflen); // A CONTINUER
 		if (buflen == 0)
 			buf[0] = '\0';
 		work_line = ft_strjoin(work_line, buf);
