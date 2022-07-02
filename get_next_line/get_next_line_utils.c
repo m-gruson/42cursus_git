@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:43:51 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/02 21:07:07 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 21:29:12 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	}
 	return (i);
-}
-
-char	*ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i != n)
-	{
-		*(char *)s++ = '\0';
-		i++;
-	}
-	return ((char *)s);
 }
 
 char	*ft_strjoin(char *s1, char *s2)

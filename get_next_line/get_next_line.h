@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:54:55 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/02 18:52:50 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 21:29:18 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_memchr(char *s, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_bzero(void *s, size_t n);
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 2
