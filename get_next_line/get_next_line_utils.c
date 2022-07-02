@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:43:51 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/02 18:52:38 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 19:22:33 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	l = 0;
-	if (!s1 && !s2 || ft_strlen(s1) + ft_strlen(s2) == 0)
+	if ((!s1 && !s2) || ft_strlen(s1) + ft_strlen(s2) == 0)
 		return(free(s1), NULL);
 	s3 = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (!s3)

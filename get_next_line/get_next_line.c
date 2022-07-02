@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 18:53:46 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 19:27:43 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_end_line(char *work_line)
 	tmp = ft_calloc(sizeof(char), (ft_strlen(work_line) - i + 1));
 	if (!tmp)
 		return (free(work_line), NULL);
-	while (work_line[i-1] || tmp[j])
+	while (work_line[i-1])
 		tmp[j++] = work_line[i++];
 	return (free(work_line), tmp);
 }
@@ -59,8 +59,8 @@ char	*get_print_line(char *src)
 
 char *get_work_line(int	fd, char *work_line)
 {
-	char *buf;
-	int	buflen;
+	char 	*buf;
+	size_t	buflen;
 
 	buflen = 1;
 	buf = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
@@ -71,11 +71,8 @@ char *get_work_line(int	fd, char *work_line)
 	while(!ft_memchr(work_line, '\n', (ft_strlen(work_line))) && buflen != 0)
 	{
 		buflen = read(fd, buf, (BUFFER_SIZE));
-		printf("buf : %s\n", buf);
-		if (buflen < ft_strlen(buf))
-			ft_bzero(buf, buflen); // A CONTINUER
-		if (buflen == 0)
-			buf[0] = '\0';
+		if (buflen < ft_strlen(buf) || buflen == 0 )
+			buf[buflen] = '\0';
 		work_line = ft_strjoin(work_line, buf);
 	}
 	return(free(buf), work_line);
@@ -92,29 +89,27 @@ char *get_next_line(int fd)
 	if (!work_line)
 		work_line = NULL;
 	work_line = get_work_line(fd, work_line);
-	//printf("\nworkline 1 %s ABAB---", work_line);
 	print_line = get_print_line(work_line);
 	work_line = get_end_line(work_line);
-	// printf("\nworkline 2 %s ABAB---", work_line);
 	return(print_line);
 }
 
-int main(void)
-{
-	int		fd;
-	char	*line;
+// int main(void)
+// {
+// 	int		fd;
+// 	char	*line;
 
-	fd = 0;
-	fd = open("text.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf(" 1 : %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf(" 2 : %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf(" 3 : %s", line);
-	free(line);
-	close(fd);
-	return (0);
-} 
+// 	fd = 0;
+// 	fd = open("text.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	printf(" 1 : %s", line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf(" 2 : %s", line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf(" 3 : %s", line);
+// 	free(line);
+// 	close(fd);
+// 	return (0);
+// } 
