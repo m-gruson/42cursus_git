@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 20:30:51 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 21:04:54 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,10 @@ char *get_next_line(int fd)
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 		return (NULL);
 	if (!work_line)
-		work_line = NULL;
+	{
+		work_line = malloc(sizeof(char) * 1);
+		work_line[0] = '\0';
+	}
 	work_line = get_work_line(fd, work_line);
 	print_line = get_print_line(work_line);
 	work_line = get_end_line(work_line);
