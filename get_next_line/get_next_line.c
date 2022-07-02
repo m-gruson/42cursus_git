@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 16:41:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 17:19:02 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,17 @@ char	*get_end_line(char *work_line)
 	i = 0;
 	j = 0;
 	if (!work_line)
-		return (NULL);
+		return (free(work_line), NULL);
 	while (work_line[i] && work_line[i] != '\n')
 		i++;
 	i++;
 	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - i + 1));
 	if (!tmp)
-		return (NULL);
+		return (free(work_line), NULL);
 	tmp[ft_strlen(work_line) - i] = '\0';
 	while (work_line[i] || tmp[j])
 		tmp[j++] = work_line[i++];
-	free(work_line);
-	return (tmp);
+	return (free(work_line), tmp);
 }
 
 char	*get_print_line(char *src)
@@ -75,12 +74,9 @@ char *get_work_line(int	fd, char *work_line)
 		buflen = read(fd, buf, (BUFFER_SIZE));
 		if (buflen == 0)
 			buf[0] = '\0';
-		//printf("wl : %s", work_line);
 		work_line = ft_strjoin(work_line, buf);
-		//printf("tmp : %s", tmp);
 	}
-	free(buf);
-	return(work_line);
+	return(free(buf), work_line);
 	
 }
 

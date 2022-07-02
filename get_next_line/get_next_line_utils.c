@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:43:51 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/02 16:43:53 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 17:17:57 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	l = 0;
 	if (!s1 && !s2 || ft_strlen(s1) + ft_strlen(s2) == 0)
-	{
-		free(s1);	
-		return(NULL);
-	}
+		return(free(s1), NULL);
 	s3 = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!s3)
-		return (NULL);
+		return (free(s1), NULL);
 	s3[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	while (s1 && i < ft_strlen(s1))
 	{
@@ -52,8 +49,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	while (s2 && i < ft_strlen(s2))
 		s3[l++] = s2[i++];
-	free(s1);
-	return (s3);
+	return (free(s1), s3);
 }
 
 int	ft_memchr(char *s, int c, size_t n)
