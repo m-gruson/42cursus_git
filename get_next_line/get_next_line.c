@@ -6,31 +6,29 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 21:26:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 23:19:31 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 
-char	*get_end_line(char *work_line)
+char	*get_end_line(char *work_line, char *print_line)
 {
-	int		i;
 	int		j;
 	char	*tmp;
+	int		len;
 
-	i = 0;
 	j = 0;
+	len = ft_strlen(print_line);
 	if (!work_line)
 		return (free(work_line), NULL);
-	while (work_line[i] && work_line[i] != '\n')
-		i++;
-	i++;
-	tmp = ft_calloc(sizeof(char), (ft_strlen(work_line) - i + 1));
+	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - len + 1));
 	if (!tmp)
 		return (free(work_line), NULL);
-	while (work_line[i-1])
-		tmp[j++] = work_line[i++];
+	while (work_line[len])
+		tmp[j++] = work_line[len++];
+	tmp[j] = '\0';
 	return (free(work_line), tmp);
 }
 
@@ -94,7 +92,7 @@ char *get_next_line(int fd)
 	}
 	work_line = get_work_line(fd, work_line);
 	print_line = get_print_line(work_line);
-	work_line = get_end_line(work_line);
+	work_line = get_end_line(work_line, print_line);
 	return(print_line);
 }
 
