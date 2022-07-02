@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/01 18:29:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 16:41:58 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,15 @@ char	*get_end_line(char *work_line)
 	tmp[ft_strlen(work_line) - i] = '\0';
 	while (work_line[i] || tmp[j])
 		tmp[j++] = work_line[i++];
-	// free(work_line);
+	free(work_line);
 	return (tmp);
 }
 
-char	*get_clean_line(char *src)
+char	*get_print_line(char *src)
 {
-	int	i;
+	size_t	i;
 	char	*tmp;
 	
-	//printf("src : %s\n", src);
 	i = 0;
 	if (!src || ft_strlen(src) == 0)
 		return (NULL);
@@ -63,35 +62,31 @@ char	*get_clean_line(char *src)
 char *get_work_line(int	fd, char *work_line)
 {
 	char *buf;
-	char *tmp;
 	int	buflen;
 
 	buflen = 1;
 	buf = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
 	if (!buf)
-		return (NULL);
-	while(!ft_memchr(work_line, '\n', (ft_strlen(work_line) - 1)) && buflen != 0)
 	{
-		buflen = read(fd, buf, (BUFFER_SIZE + 1));
-		if (buflen == 0)
-		{
-			free(buf);
-			buf = NULL;
-		}
-		//printf("wl : %s", work_line);
-		tmp = ft_strjoin(work_line, buf);
-		//printf("tmp : %s", tmp);
-		// free(work_line);
-		free(buf);
-		work_line = tmp;
+		return (NULL);
 	}
+	while(!ft_memchr(work_line, '\n', (ft_strlen(work_line))) && buflen != 0)
+	{
+		buflen = read(fd, buf, (BUFFER_SIZE));
+		if (buflen == 0)
+			buf[0] = '\0';
+		//printf("wl : %s", work_line);
+		work_line = ft_strjoin(work_line, buf);
+		//printf("tmp : %s", tmp);
+	}
+	free(buf);
 	return(work_line);
 	
 }
 
 char *get_next_line(int fd)
 {
-	char static	*work_line;
+	static char	*work_line;
 	char		*print_line;
 	
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
@@ -100,10 +95,9 @@ char *get_next_line(int fd)
 		work_line = NULL;
 	work_line = get_work_line(fd, work_line);
 	//printf("\nworkline 1 %s ABAB---", work_line);
-	print_line = get_clean_line(work_line);
+	print_line = get_print_line(work_line);
 	work_line = get_end_line(work_line);
 	// printf("\nworkline 2 %s ABAB---", work_line);
-	
 	return(print_line);
 }
 
@@ -116,10 +110,13 @@ int main(void)
 	fd = open("text.txt", O_RDONLY);
 	line = get_next_line(fd);
 	printf("1 : %s", line);
+	free(line);
 	line = get_next_line(fd);
-	printf("1 : %s", line);
+	printf("2 : %s", line);
+	free(line);
 	line = get_next_line(fd);
-	printf("1 : %s", line);
+	printf("3 : %s", line);
+	free(line);
 	close(fd);
 	return (0);
 } 
