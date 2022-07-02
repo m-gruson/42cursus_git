@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 17:19:02 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 17:39:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ char	*get_end_line(char *work_line)
 	while (work_line[i] && work_line[i] != '\n')
 		i++;
 	i++;
-	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - i + 1));
+	tmp = ft_calloc(sizeof(char), (ft_strlen(work_line) - i + 1));
 	if (!tmp)
 		return (free(work_line), NULL);
-	tmp[ft_strlen(work_line) - i] = '\0';
 	while (work_line[i] || tmp[j])
 		tmp[j++] = work_line[i++];
 	return (free(work_line), tmp);
@@ -105,13 +104,13 @@ int main(void)
 	fd = 0;
 	fd = open("text.txt", O_RDONLY);
 	line = get_next_line(fd);
-	printf("1 : %s", line);
+	printf(" 1 : %s", line);
 	free(line);
 	line = get_next_line(fd);
-	printf("2 : %s", line);
+	printf(" 2 : %s", line);
 	free(line);
 	line = get_next_line(fd);
-	printf("3 : %s", line);
+	printf(" 3 : %s", line);
 	free(line);
 	close(fd);
 	return (0);
