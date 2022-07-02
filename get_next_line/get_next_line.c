@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 17:39:09 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/02 17:42:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_end_line(char *work_line)
 	tmp = ft_calloc(sizeof(char), (ft_strlen(work_line) - i + 1));
 	if (!tmp)
 		return (free(work_line), NULL);
-	while (work_line[i] || tmp[j])
+	while (work_line[i-1] || tmp[j])
 		tmp[j++] = work_line[i++];
 	return (free(work_line), tmp);
 }
