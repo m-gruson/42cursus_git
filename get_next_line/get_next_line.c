@@ -6,12 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/03 14:02:47 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/03 14:53:14 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 char	*get_end_line(char *work_line, char *print_line)
 {
@@ -34,7 +33,7 @@ char	*get_end_line(char *work_line, char *print_line)
 
 char	*get_print_line(char *src)
 {
-	int	i;
+	int		i;
 	char	*tmp;
 	int		len;
 
@@ -42,14 +41,14 @@ char	*get_print_line(char *src)
 	i = 0;
 	if (!src || len == 0)
 		return (NULL);
-	while(src[i] != '\n' && i < len)
+	while (src[i] != '\n' && i < len)
 	{
 		i++;
 	}
 	i++;
 	tmp = malloc(sizeof(char) * (i + 1));
 	tmp[i] = '\0';
-	while(i > 0)
+	while (i > 0)
 	{
 		i--;
 		tmp[i] = src[i];
@@ -57,10 +56,10 @@ char	*get_print_line(char *src)
 	return (tmp);
 }
 
-char *get_work_line(int	fd, char *work_line)
+char	*get_work_line(int fd, char *work_line)
 {
-	char 	*buf;
-	int	buflen;
+	char	*buf;
+	int		buflen;
 
 	buflen = 1;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -68,23 +67,22 @@ char *get_work_line(int	fd, char *work_line)
 	{
 		return (NULL);
 	}
-	while(!ft_memchr(work_line, '\n', ft_strlen(work_line)) && buflen != 0)
+	while (!ft_memchr(work_line, '\n', ft_strlen(work_line)) && buflen != 0)
 	{
 		buflen = read(fd, buf, (BUFFER_SIZE));
 		buf[buflen] = '\0';
-		if (buflen < ft_strlen(work_line) || buflen == 0 )
+		if (buflen < ft_strlen(work_line) || buflen == 0)
 			buf[buflen] = '\0';
 		work_line = ft_strjoin(work_line, buf);
 	}
-	return(free(buf), work_line);
-	
+	return (free(buf), work_line);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*work_line;
 	char		*print_line;
-	
+
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 		return (NULL);
 	if (!work_line)
@@ -95,7 +93,7 @@ char *get_next_line(int fd)
 	work_line = get_work_line(fd, work_line);
 	print_line = get_print_line(work_line);
 	work_line = get_end_line(work_line, print_line);
-	return(print_line);
+	return (print_line);
 }
 
 // int main(void)
