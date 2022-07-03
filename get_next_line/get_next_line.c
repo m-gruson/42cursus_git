@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/02 23:19:31 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/03 14:02:47 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,32 @@ char	*get_end_line(char *work_line, char *print_line)
 {
 	int		j;
 	char	*tmp;
-	int		len;
+	int		print_line_len;
 
 	j = 0;
-	len = ft_strlen(print_line);
+	print_line_len = ft_strlen(print_line);
 	if (!work_line)
 		return (free(work_line), NULL);
-	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - len + 1));
+	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - print_line_len + 1));
 	if (!tmp)
 		return (free(work_line), NULL);
-	while (work_line[len])
-		tmp[j++] = work_line[len++];
+	while (work_line[print_line_len])
+		tmp[j++] = work_line[print_line_len++];
 	tmp[j] = '\0';
 	return (free(work_line), tmp);
 }
 
 char	*get_print_line(char *src)
 {
-	size_t	i;
+	int	i;
 	char	*tmp;
-	
+	int		len;
+
+	len = ft_strlen(src);
 	i = 0;
-	if (!src || ft_strlen(src) == 0)
+	if (!src || len == 0)
 		return (NULL);
-	while(src[i] != '\n' && i < ft_strlen(src))
+	while(src[i] != '\n' && i < len)
 	{
 		i++;
 	}
@@ -58,7 +60,7 @@ char	*get_print_line(char *src)
 char *get_work_line(int	fd, char *work_line)
 {
 	char 	*buf;
-	size_t	buflen;
+	int	buflen;
 
 	buflen = 1;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -66,11 +68,11 @@ char *get_work_line(int	fd, char *work_line)
 	{
 		return (NULL);
 	}
-	while(!ft_memchr(work_line, '\n', (ft_strlen(work_line))) && buflen != 0)
+	while(!ft_memchr(work_line, '\n', ft_strlen(work_line)) && buflen != 0)
 	{
 		buflen = read(fd, buf, (BUFFER_SIZE));
 		buf[buflen] = '\0';
-		if (buflen < ft_strlen(buf) || buflen == 0 )
+		if (buflen < ft_strlen(work_line) || buflen == 0 )
 			buf[buflen] = '\0';
 		work_line = ft_strjoin(work_line, buf);
 	}

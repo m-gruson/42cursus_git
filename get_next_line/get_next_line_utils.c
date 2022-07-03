@@ -6,13 +6,13 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:43:51 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/02 21:29:12 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/03 14:01:30 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -31,12 +31,17 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	i;
 	int		l;
 	char	*s3;
+	int		len_s1;
+	int		len_s2;
 
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	
 	i = 0;
 	l = 0;
-	if ((!s1 && !s2) || ft_strlen(s1) + ft_strlen(s2) == 0)
+	if ((!s1 && !s2) || len_s1 + len_s2 == 0)
 		return(free(s1), NULL);
-	s3 = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	s3 = malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!s3)
 		return (free(s1), NULL);
 	while (s1 && s1[i])
@@ -69,28 +74,4 @@ int	ft_memchr(char *s, int c, size_t n)
 		i++;
 	}
 	return (0);
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*p;
-	size_t	i;
-
-	if (nmemb && ((nmemb * size / nmemb) != size))
-		return (NULL);
-	if (nmemb == 0 || size == 0)
-	{
-		nmemb = 1;
-		size = 1;
-	}
-	i = 0;
-	p = malloc(nmemb * size);
-	if (p == NULL)
-		return (NULL);
-	while (i < nmemb * size)
-	{
-		((char *)p)[i] = '\0';
-		i++;
-	}
-	return ((char *) p);
 }
