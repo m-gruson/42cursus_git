@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 17:54:55 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/10 19:14:14 by mgruson          ###   ########.fr       */
+/*   Created: 2022/05/20 11:06:12 by ilandols          #+#    #+#             */
+/*   Updated: 2022/07/10 17:45:44 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H 
-
+# define GET_NEXT_LINE_H
 # include <string.h>
 # include <strings.h>
 # include <stdlib.h>
@@ -27,16 +26,14 @@
 # include <stddef.h>
 
 char	*get_next_line(int fd);
-char	*get_work_line(int fd, char *line);
-char	*get_print_line(char *src);
-char	*get_end_line(char *work_line, char *print_line);
-
-int		ft_strlen(const char *s);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_memchr(char *s, int c, size_t n);
+int		ft_strchr_gnl(char *s, int c);
+void	remove_last_line(char *buffer);
+int		is_end_of_line(char *str);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+void	get_line(char *line, char *buffer);
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE		100
+# define BUFFER_SIZE		1
 # endif
 
-#endif 
+#endif

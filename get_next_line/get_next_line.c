@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/03 14:53:14 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/10 19:20:45 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,22 +96,25 @@ char	*get_next_line(int fd)
 	return (print_line);
 }
 
-// int main(void)
-// {
-// 	int		fd;
-// 	char	*line;
+int main(void)
+{
+	int		fd;
+	char	*line;
 
-// 	fd = 0;
-// 	fd = open("text.txt", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	printf(" 1 : %s", line);
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf(" 2 : %s", line);
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf(" 3 : %s", line);
-// 	free(line);
-// 	close(fd);
-// 	return (0);
-// } 
+	fd = 0;
+	fd = open("test", O_RDONLY);
+	line = get_next_line(fd);
+	printf(" 1 : %s", line);
+	free(line);
+	line = get_next_line(fd);
+	printf(" 2 : %s", line);
+	free(line);
+	line = get_next_line(fd);
+	printf(" 3 : %s", line);
+	free(line);
+	line = get_next_line(fd);
+	printf(" 3 : %s", line);
+	free(line);
+	close(fd);
+	return (0);
+} 

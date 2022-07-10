@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-CC = gcc -Wall -Wextra -Werror
+CC = gcc
 
 SRC = ft_printf.c \
     ft_nbrlen.c \
