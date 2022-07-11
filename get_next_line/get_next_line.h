@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:54:55 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/10 19:14:14 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:05:43 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@
 char	*get_next_line(int fd);
 char	*get_work_line(int fd, char *line);
 char	*get_print_line(char *src);
-char	*get_end_line(char *work_line, char *print_line);
+char	*stock_end_line(char *work_line, char *print_line);
+char	*pull_end_line(char *work_line);
 
 int		ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_memchr(char *s, int c, size_t n);
 
-# ifndef BUFFER_SIZE
-# define BUFFER_SIZE		100
-# endif
+// # ifndef BUFFER_SIZE
+// # define BUFFER_SIZE		2
+// # endif
 
 #endif 

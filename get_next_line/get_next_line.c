@@ -6,24 +6,50 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/10 19:20:45 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:05:55 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_end_line(char *work_line, char *print_line)
+char	*pull_end_line(char *work_line)
 {
-	int		j;
+	int		i;
 	char	*tmp;
-	int		print_line_len;
+
+	i = 0;
+	if (work_line)
+	{
+		tmp = malloc(sizeof(char) * ((ft_strlen(work_line)) + 1));
+		if (!tmp)
+			return (NULL);
+		while (work_line[i])
+		{
+			tmp[i] = work_line[i];
+			i++;
+		}
+		tmp[i] = '\0';
+	}
+	if (!work_line)
+	{
+		tmp = malloc(sizeof(char) * 1);
+		if (!tmp)
+			return (NULL);
+		tmp[0] = '\0';
+	}
+	return (tmp);
+}
+
+char	*stock_end_line(char *work_line, char *print_line)
+{
+	int			j;
+	static char	tmp[BUFFER_SIZE + 1];
+	int			print_line_len;
 
 	j = 0;
+	tmp[BUFFER_SIZE] = '\0';
 	print_line_len = ft_strlen(print_line);
 	if (!work_line)
-		return (free(work_line), NULL);
-	tmp = malloc(sizeof(char) * (ft_strlen(work_line) - print_line_len + 1));
-	if (!tmp)
 		return (free(work_line), NULL);
 	while (work_line[print_line_len])
 		tmp[j++] = work_line[print_line_len++];
@@ -85,36 +111,32 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 		return (NULL);
-	if (!work_line)
-	{
-		work_line = malloc(sizeof(char) * 1);
-		work_line[0] = '\0';
-	}
+	work_line = pull_end_line(work_line);
 	work_line = get_work_line(fd, work_line);
 	print_line = get_print_line(work_line);
-	work_line = get_end_line(work_line, print_line);
+	work_line = stock_end_line(work_line, print_line);
 	return (print_line);
 }
 
-int main(void)
-{
-	int		fd;
-	char	*line;
+// int main(void)
+// {
+// 	int		fd;
+// 	char	*line;
 
-	fd = 0;
-	fd = open("test", O_RDONLY);
-	line = get_next_line(fd);
-	printf(" 1 : %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf(" 2 : %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf(" 3 : %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf(" 3 : %s", line);
-	free(line);
-	close(fd);
-	return (0);
-} 
+// 	fd = 0;
+// 	fd = open("get_next_line.c", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	printf(" 1 : %s", line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf(" 2 : %s", line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf(" 3 : %s", line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf(" 3 : %s", line);
+// 	free(line);
+// 	close(fd);
+// 	return (0);
+// } 
