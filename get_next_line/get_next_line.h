@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 17:54:55 by mathieug          #+#    #+#             */
-/*   Updated: 2022/07/11 14:05:43 by mgruson          ###   ########.fr       */
+/*   Created: 2022/06/28 17:54:55 by mgruson           #+#    #+#             */
+/*   Updated: 2022/07/11 21:43:49 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strjoin(char *s1, char *s2);
 int		ft_memchr(char *s, int c, size_t n);
 
 // # ifndef BUFFER_SIZE
-// # define BUFFER_SIZE		2
+// # define BUFFER_SIZE		0
 // # endif
 
 #endif 

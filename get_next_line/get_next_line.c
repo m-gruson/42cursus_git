@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:41:57 by mgruson           #+#    #+#             */
-/*   Updated: 2022/07/11 14:05:55 by mgruson          ###   ########.fr       */
+/*   Updated: 2022/07/11 21:43:44 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ char	*get_print_line(char *src)
 	}
 	i++;
 	tmp = malloc(sizeof(char) * (i + 1));
+	if (!tmp)
+		return (NULL);
 	tmp[i] = '\0';
 	while (i > 0)
 	{
@@ -96,6 +98,8 @@ char	*get_work_line(int fd, char *work_line)
 	while (!ft_memchr(work_line, '\n', ft_strlen(work_line)) && buflen != 0)
 	{
 		buflen = read(fd, buf, (BUFFER_SIZE));
+		if (buflen == -1)
+			return (free(buf), NULL);
 		buf[buflen] = '\0';
 		if (buflen < ft_strlen(work_line) || buflen == 0)
 			buf[buflen] = '\0';
